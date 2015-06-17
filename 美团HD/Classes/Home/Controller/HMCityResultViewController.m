@@ -11,18 +11,12 @@
 #import "HMCity.h"
 
 @interface HMCityResultViewController ()
-@property (nonatomic, strong) NSMutableArray *resultNames;
+/** 里面装的都是符合条件的城市模型 */
+@property (nonatomic, strong) NSArray *resultCities;
 @end
 
 @implementation HMCityResultViewController
 
-- (NSMutableArray *)resultNames
-{
-    if (_resultNames == nil) {
-        _resultNames = [NSMutableArray array];
-    }
-    return _resultNames;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,23 +27,16 @@
     if (searchText.length == 0) return;
     _searchText = [searchText copy];
     
-    // 清除就数据
-    [self.resultNames removeAllObjects];
-    
     // 将搜索条件的字符串转换成小写
     searchText = searchText.lowercaseString;
     
-    // 根据搜索条件 - 搜索城市
+    // 根据搜索条件 - 搜索城市 (谓词 - 过滤器)
     NSArray *cities = [HMDataTool cities];
-    for (HMCity *city in cities) {
-        if ([city.name containsString:searchText]) { //名字中包含了搜索条件 广州
-            [self.resultNames addObject:city.name];
-        } else if ([city.pinYin containsString:searchText]) { //拼音中包含了搜索条件
-            [self.resultNames addObject:city.name];
-        } else if ([city.pinYinHead containsString:searchText]) { //拼音声母中包含了搜索条件
-            [self.resultNames addObject:city.name];
-        }
-    }
+    
+    // 创建过滤条件
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name contains %@ or pinYin contains %@ or pinYinHead contains %@",searchText, searchText, searchText];
+    self.resultCities = [cities filteredArrayUsingPredicate:predicate];
+    
     
     // 刷新表格
     [self.tableView reloadData];
@@ -58,7 +45,7 @@
 #pragma mark - 数据源方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.resultNames.count;
+    return self.resultCities.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -70,7 +57,8 @@
     }
     
     // 设置城市名称
-    cell.textLabel.text = self.resultNames[indexPath.row];
+    HMCity *city = self.resultCities[indexPath.row];
+    cell.textLabel.text = city.name;
     
     return cell;
 }
@@ -78,7 +66,7 @@
 #pragma mark - 代理方法
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [NSString stringWithFormat:@"一共有%zd个搜索结果",self.resultNames.count];
+    return [NSString stringWithFormat:@"一共有%zd个搜索结果",self.resultCities.count];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
