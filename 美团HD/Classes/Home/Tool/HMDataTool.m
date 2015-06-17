@@ -10,9 +10,20 @@
 #import "HMSort.h"
 #import "HMCategory.h"
 #import "HMCityGroup.h"
+#import "HMCity.h"
 #import <MJExtension.h>
 
 @implementation HMDataTool
+
+static NSArray *_cities;
++ (NSArray *)cities
+{
+    if (_cities == nil) {
+        _cities = [HMCity objectArrayWithFilename:@"cities.plist"];
+    }
+    return _cities;
+}
+
 
 static NSArray *_sorts;
 + (NSArray *)sorts
@@ -40,5 +51,23 @@ static NSArray *_cityGroups;
     }
     return _cityGroups;
 }
+
+static NSArray *_cityNames;
++ (NSArray *)cityNames
+{
+    if (_cityNames == nil) {
+        NSMutableArray *cityNames = [NSMutableArray array];
+        NSArray *groups = [self cityGroups];
+        [groups enumerateObjectsUsingBlock:^(HMCityGroup *group, NSUInteger idx, BOOL *stop) {
+            if (idx == 0) return;
+//            [cityNames addObject:group.cities];
+            // 将group.cities中的所有元素添加到cityNames数组中
+            [cityNames addObjectsFromArray:group.cities];
+        }];
+        _cityNames = cityNames;
+    }
+    return _cityNames;
+}
+
 
 @end

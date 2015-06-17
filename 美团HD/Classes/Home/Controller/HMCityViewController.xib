@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HMCityViewController">
             <connections>
+                <outlet property="searchBar" destination="gD5-9H-xcK" id="CAn-26-wfP"/>
                 <outlet property="tableView" destination="raN-av-meF" id="d5Z-nD-8lN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,7 +21,11 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="ypd-zc-AKm"/>
                     </constraints>
+                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Slc-vu-XSf"/>
+                    </connections>
                 </searchBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="raN-av-meF">
                     <rect key="frame" x="0.0" y="69" width="600" height="531"/>

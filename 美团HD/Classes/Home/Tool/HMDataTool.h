@@ -24,5 +24,14 @@
  */
 + (NSArray *)cityGroups;
 
+/**
+ *  返回所有的城市名字 (里面都是NSString对象)
+ */
++ (NSArray *)cityNames;
+
+/**
+ *  返回所有的城市 (里面都是HMCity模型)
+ */
++ (NSArray *)cities;
 
 @end
