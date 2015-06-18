@@ -15,6 +15,8 @@
 #import "HMSort.h"
 #import "HMCategory.h"
 #import "HMCity.h"
+#import "HMDistrict.h"
+#import "DPAPI.h"
 
 @interface HMHomeViewController ()
 /** 分类item */
@@ -27,6 +29,13 @@
 // 记录一些当前数据
 /** 当前城市 */
 @property (nonatomic, strong) HMCity *currentCity;
+// 当前的类别名称 (发给服务器)
+@property (nonatomic, copy) NSString *currentCategoryName;
+// 当前的区域名称 (发给服务器)
+@property (nonatomic, copy) NSString *currentDistrictName;
+/** 当前排序模型 */
+@property (nonatomic, strong) HMSort *currentSort;
+
 @end
 
 @implementation HMHomeViewController
@@ -60,6 +69,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [HMNoteCenter addObserver:self selector:@selector(sortDidChange:) name:HMSortDidChangeNotification object:nil];
     [HMNoteCenter addObserver:self selector:@selector(categoryDidChange:) name:HMCategoryDidChangeNotification object:nil];
     [HMNoteCenter addObserver:self selector:@selector(cityDidChange:) name:HMCityDidChangeNotification object:nil];
+    [HMNoteCenter addObserver:self selector:@selector(districtDidChange:) name:HMDistrictDidChangeNotification object:nil];
 }
 
 - (void)dealloc
@@ -127,10 +137,11 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     // 更新导航栏顶部排序的子标题
     HMHomeTopItem *topItem = (HMHomeTopItem *)self.sortItem.customView;
-    HMSort *sort = note.userInfo[HMCurrentSortKey];
-    topItem.subtitle = sort.label;
+    self.currentSort = note.userInfo[HMCurrentSortKey];
+    topItem.subtitle = self.currentSort.label;
     
-#warning TODO 重新发送请求给服务器
+    // 重新发送请求给服务器
+    [self loadNewDeals];
 }
 
 - (void)categoryDidChange:(NSNotification *)note
@@ -141,11 +152,21 @@ static NSString * const reuseIdentifier = @"Cell";
     HMCategory *category = note.userInfo[HMCurrentCategoryKey];
     int subcategoryIndex = [note.userInfo[HMCurrentSubcategoryIndexKey] intValue];
     NSString *subcategory = category.subcategories[subcategoryIndex];
+    // 设置数据
     topItem.title = category.name;
     topItem.subtitle = subcategory;
     [topItem setIcon:category.icon highIcon:category.highlighted_icon];
     
-#warning TODO 重新发送请求给服务器
+    // 发送给服务器的分类名称
+    self.currentCategoryName = category.subcategories ? subcategory : category.name;
+    if ([self.currentCategoryName isEqualToString:@"全部"]) {
+        self.currentCategoryName = category.name;
+    } else if ([self.currentCategoryName isEqualToString:@"全部分类"]) {
+        self.currentCategoryName = nil;
+    }
+    
+    // 重新发送请求给服务器
+    [self loadNewDeals];
 }
 
 - (void)cityDidChange:(NSNotification *)note
@@ -155,10 +176,32 @@ static NSString * const reuseIdentifier = @"Cell";
     // 取出模型
     self.currentCity = note.userInfo[HMCurrentCityKey];
     topItem.title = self.currentCity.name;
-    topItem.subtitle = @"全部";
+    topItem.subtitle = nil;
     
+    // 重新发送请求给服务器
+    [self loadNewDeals];
+}
+
+- (void)districtDidChange:(NSNotification *)note
+{
+    // 更新导航栏顶部类别菜单的内容
+    HMHomeTopItem *topItem = (HMHomeTopItem *)self.districtItem.customView;
+    // 取出模型
+    HMDistrict *district = note.userInfo[HMCurrentDistrictKey];
+    int subdistrictIndex = [note.userInfo[HMCurrentSubdistrictIndexKey] intValue];
+    NSString *subdistrict = district.subdistricts[subdistrictIndex];
+    // 设置数据
+    topItem.title = [NSString stringWithFormat:@"%@ | %@",self.currentCity.name, district.name];
+    topItem.subtitle = subdistrict;
     
-#warning TODO 重新发送请求给服务器
+    // 发送给服务器的区域名称
+    self.currentDistrictName = district.subdistricts ? subdistrict : district.name;
+    if ([self.currentDistrictName isEqualToString:@"全部"]) {
+        self.currentDistrictName = subdistrict ? district.name : nil;
+    }
+    
+    // 重新发送请求给服务器
+    [self loadNewDeals];
 }
 
 #pragma mark - 导航栏事件处理
@@ -208,6 +251,33 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     HMLog(@"mapClick");
 }
+
+#pragma mark - 私有方法
+- (void)loadNewDeals
+{
+    if (self.currentCity == nil) return;
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"limit"] = @2;
+    
+    // 城市
+    params[@"city"] = self.currentCity.name;
+    // 区域
+    if (self.currentDistrictName) params[@"region"] = self.currentDistrictName;
+    // 分类
+    if (self.currentCategoryName) params[@"category"] = self.currentCategoryName;
+    // 排序
+    if (self.currentSort) params[@"sort"] = @(self.currentSort.value);
+    
+    HMLog(@"params - %@",params);
+    
+    [[DPAPI sharedInstance] request:@"v1/deal/find_deals" params:params success:^(id json) {
+        HMLog(@"success - %@",json[@"total_count"]);
+    } failure:^(NSError *error) {
+        HMLog(@"error - %@",error);
+    }];
+}
+
 
 #pragma mark <UICollectionViewDataSource>
 

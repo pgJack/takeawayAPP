@@ -111,6 +111,7 @@
 	
     NSError *error = nil;
     id result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+//    NSLog(@"result - %@",result);
     if (!result) {
 		NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
 								  error, @"error", nil];
@@ -133,6 +134,12 @@
 		} else {
 			if ([status isEqualToString:@"ERROR"]) {
 				// TODO: 处理错误代码
+                // 后续代码处理错误信息 - 根据服务器返回的result 进行取值,调用方法,回调打印错误信息
+                NSInteger code = [result[@"error"][@"errorCode"] integerValue];
+                NSString *msg = result[@"error"][@"errorMessage"];
+                NSError *error = [NSError errorWithDomain:msg code:code userInfo:nil];
+                [self failedWithError:error];
+                
 			}
 		}
 	}
