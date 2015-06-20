@@ -41,6 +41,11 @@
 		18A05996248DCD4900E17CCE /* DPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A05992248DCD4900E17CCE /* DPAPI.m */; };
 		18A05997248DCD4900E17CCE /* DPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A05995248DCD4900E17CCE /* DPRequest.m */; };
 		18A0599B248E75F200E17CCE /* DPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A0599A248E75F200E17CCE /* DPConstants.m */; };
+		18C3F0AC1B3408E6007808E1 /* HMCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C3F0AA1B3408E6007808E1 /* HMCollectionViewCell.m */; };
+		18C3F0AD1B3408E6007808E1 /* HMCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C3F0AB1B3408E6007808E1 /* HMCollectionViewCell.xib */; };
+		18C3F0B01B340C14007808E1 /* HMCenterLineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C3F0AF1B340C14007808E1 /* HMCenterLineLabel.m */; };
+		18C3F0B91B341CED007808E1 /* HMDeal.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C3F0B81B341CED007808E1 /* HMDeal.m */; };
+		18C3F0BC1B341E2B007808E1 /* HMFineDealResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C3F0BB1B341E2B007808E1 /* HMFineDealResult.m */; };
 		18EA2F581B30194600EF27E0 /* HMCityResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EA2F571B30194600EF27E0 /* HMCityResultViewController.m */; };
 		18EA2F5E1B3067DF00EF27E0 /* HMCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EA2F5D1B3067DF00EF27E0 /* HMCity.m */; };
 		18EA2F64248E08F800EF27E0 /* HMDistrict.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EA2F63248E08F800EF27E0 /* HMDistrict.m */; };
@@ -119,6 +124,15 @@
 		18A05994248DCD4900E17CCE /* DPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPRequest.h; sourceTree = "<group>"; };
 		18A05995248DCD4900E17CCE /* DPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPRequest.m; sourceTree = "<group>"; };
 		18A0599A248E75F200E17CCE /* DPConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPConstants.m; sourceTree = "<group>"; };
+		18C3F0A91B3408E6007808E1 /* HMCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMCollectionViewCell.h; sourceTree = "<group>"; };
+		18C3F0AA1B3408E6007808E1 /* HMCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMCollectionViewCell.m; sourceTree = "<group>"; };
+		18C3F0AB1B3408E6007808E1 /* HMCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HMCollectionViewCell.xib; sourceTree = "<group>"; };
+		18C3F0AE1B340C14007808E1 /* HMCenterLineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMCenterLineLabel.h; sourceTree = "<group>"; };
+		18C3F0AF1B340C14007808E1 /* HMCenterLineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMCenterLineLabel.m; sourceTree = "<group>"; };
+		18C3F0B71B341CED007808E1 /* HMDeal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMDeal.h; sourceTree = "<group>"; };
+		18C3F0B81B341CED007808E1 /* HMDeal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMDeal.m; sourceTree = "<group>"; };
+		18C3F0BA1B341E2B007808E1 /* HMFineDealResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMFineDealResult.h; sourceTree = "<group>"; };
+		18C3F0BB1B341E2B007808E1 /* HMFineDealResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMFineDealResult.m; sourceTree = "<group>"; };
 		18EA2F561B30194600EF27E0 /* HMCityResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMCityResultViewController.h; sourceTree = "<group>"; };
 		18EA2F571B30194600EF27E0 /* HMCityResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMCityResultViewController.m; sourceTree = "<group>"; };
 		18EA2F5C1B3067DF00EF27E0 /* HMCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMCity.h; sourceTree = "<group>"; };
@@ -298,6 +312,10 @@
 				18EA2F5D1B3067DF00EF27E0 /* HMCity.m */,
 				18EA2F62248E08F800EF27E0 /* HMDistrict.h */,
 				18EA2F63248E08F800EF27E0 /* HMDistrict.m */,
+				18C3F0B71B341CED007808E1 /* HMDeal.h */,
+				18C3F0B81B341CED007808E1 /* HMDeal.m */,
+				18C3F0BA1B341E2B007808E1 /* HMFineDealResult.h */,
+				18C3F0BB1B341E2B007808E1 /* HMFineDealResult.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -312,6 +330,11 @@
 				189C0F7E2490BF54004D1F61 /* HMDropDownLeftCell.m */,
 				189C0F802490BF64004D1F61 /* HMDropDownRightCell.h */,
 				189C0F812490BF64004D1F61 /* HMDropDownRightCell.m */,
+				18C3F0A91B3408E6007808E1 /* HMCollectionViewCell.h */,
+				18C3F0AA1B3408E6007808E1 /* HMCollectionViewCell.m */,
+				18C3F0AB1B3408E6007808E1 /* HMCollectionViewCell.xib */,
+				18C3F0AE1B340C14007808E1 /* HMCenterLineLabel.h */,
+				18C3F0AF1B340C14007808E1 /* HMCenterLineLabel.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -477,6 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				182D377E249671860086DD00 /* sorts.plist in Resources */,
+				18C3F0AD1B3408E6007808E1 /* HMCollectionViewCell.xib in Resources */,
 				189C0F8E2493B488004D1F61 /* HMDistrictViewController.xib in Resources */,
 				189C0F982493CAAF004D1F61 /* HMCityViewController.xib in Resources */,
 				18A059591B1EDC2000E17CCE /* Main.storyboard in Resources */,
@@ -540,9 +564,11 @@
 				189C0F882490E302004D1F61 /* HMConst.m in Sources */,
 				182D37422493BA9D0086DD00 /* UIView+Extension.m in Sources */,
 				18A05997248DCD4900E17CCE /* DPRequest.m in Sources */,
+				18C3F0BC1B341E2B007808E1 /* HMFineDealResult.m in Sources */,
 				185F9210248FD6E100A53064 /* HMPerson.m in Sources */,
 				182D3784249671860086DD00 /* HMSort.m in Sources */,
 				182D378C249671860086DD00 /* HMDataTool.m in Sources */,
+				18C3F0B91B341CED007808E1 /* HMDeal.m in Sources */,
 				18EA2F64248E08F800EF27E0 /* HMDistrict.m in Sources */,
 				18A0599B248E75F200E17CCE /* DPConstants.m in Sources */,
 				189C0F822490BF64004D1F61 /* HMDropDownRightCell.m in Sources */,
@@ -550,12 +576,14 @@
 				18EA2F5E1B3067DF00EF27E0 /* HMCity.m in Sources */,
 				182D3758249464A60086DD00 /* HMHomeTopItem.m in Sources */,
 				182D3766249657330086DD00 /* HMSortViewController.m in Sources */,
+				18C3F0B01B340C14007808E1 /* HMCenterLineLabel.m in Sources */,
 				18A05996248DCD4900E17CCE /* DPAPI.m in Sources */,
 				185F92282492652A00A53064 /* HMNavigationController.m in Sources */,
 				1886978D2494B80000E5B9CC /* HMCityGroup.m in Sources */,
 				182D3750249446740086DD00 /* UIBarButtonItem+Extension.m in Sources */,
 				182D376C2496576B0086DD00 /* HMDistrictViewController.m in Sources */,
 				189C0F7F2490BF54004D1F61 /* HMDropDownLeftCell.m in Sources */,
+				18C3F0AC1B3408E6007808E1 /* HMCollectionViewCell.m in Sources */,
 				185F9220249059DE00A53064 /* HMHomeViewController.m in Sources */,
 				182D37692496575A0086DD00 /* HMCategoryViewController.m in Sources */,
 				18A059841B1EE6C700E17CCE /* AppDelegate.m in Sources */,

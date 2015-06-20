@@ -17,6 +17,9 @@
 #import "HMCity.h"
 #import "HMDistrict.h"
 #import "DPAPI.h"
+#import "HMFineDealResult.h"
+#import <MJExtension.h>
+#import "HMCollectionViewCell.h"
 
 @interface HMHomeViewController ()
 /** 分类item */
@@ -25,6 +28,9 @@
 @property(nonatomic, weak) UIBarButtonItem *districtItem;
 /** 排序item */
 @property(nonatomic, weak) UIBarButtonItem *sortItem;
+
+/** 存放所有的团购 */
+@property (nonatomic, strong) NSMutableArray *deals;
 
 // 记录一些当前数据
 /** 当前城市 */
@@ -40,11 +46,25 @@
 
 @implementation HMHomeViewController
 
-static NSString * const reuseIdentifier = @"Cell";
+#pragma mark - 懒加载
+- (NSMutableArray *)deals
+{
+    if (_deals == nil) {
+        _deals = [NSMutableArray array];
+    }
+    return _deals;
+}
+
+static NSString * const reuseIdentifier = @"deal";
 
 #pragma mark - 初始化方法
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // 注册xib中使用的自定义cell
+    [self.collectionView registerNib:[UINib nibWithNibName:@"HMCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
+    layout.itemSize = CGSizeMake(305, 305);
     
     self.collectionView.backgroundColor = HMRGBColor(224, 224, 224);
     
@@ -258,7 +278,6 @@ static NSString * const reuseIdentifier = @"Cell";
     if (self.currentCity == nil) return;
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"limit"] = @2;
     
     // 城市
     params[@"city"] = self.currentCity.name;
@@ -269,10 +288,19 @@ static NSString * const reuseIdentifier = @"Cell";
     // 排序
     if (self.currentSort) params[@"sort"] = @(self.currentSort.value);
     
-    HMLog(@"params - %@",params);
-    
+    // 发送请求给服务器
     [[DPAPI sharedInstance] request:@"v1/deal/find_deals" params:params success:^(id json) {
-        HMLog(@"success - %@",json[@"total_count"]);
+        HMFineDealResult *result = [HMFineDealResult objectWithKeyValues:json];
+        
+        // 移除旧数据
+        [self.deals removeAllObjects];
+        
+        // 添加新数据
+        [self.deals addObjectsFromArray:result.deals];
+        
+        // 刷新表格
+        [self.collectionView reloadData];
+        
     } failure:^(NSError *error) {
         HMLog(@"error - %@",error);
     }];
@@ -280,20 +308,12 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 #pragma mark <UICollectionViewDataSource>
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete method implementation -- Return the number of sections
-    return 0;
-}
-
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete method implementation -- Return the number of items in the section
-    return 0;
+    return self.deals.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    HMCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     // Configure the cell
     
