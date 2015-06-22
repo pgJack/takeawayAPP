@@ -57,14 +57,41 @@
 
 static NSString * const reuseIdentifier = @"deal";
 
+#pragma mark - 监听屏幕的旋转
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
+    layout.itemSize = CGSizeMake(305, 305);
+    
+    CGFloat screenW = size.width;
+    // 根据屏幕尺寸决定每行的列数
+    int cols = (screenW == HMScreenMaxWH) ? 3 : 2;
+    // 一行之中所有cell的中宽度
+    CGFloat allCellW = cols * layout.itemSize.width;
+    // cell之间的间距
+    CGFloat xMargin = (screenW - allCellW) / (cols + 1);
+    CGFloat yMargin = (cols == 3) ? xMargin : 30;
+    
+    
+    // 周边的间距
+    layout.sectionInset = UIEdgeInsetsMake(yMargin, xMargin, yMargin, xMargin);
+    // 每一行中每个cell之间的间距
+    layout.minimumInteritemSpacing = xMargin;
+    // 每一行之间的间距
+    layout.minimumLineSpacing = yMargin;
+}
+
 #pragma mark - 初始化方法
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     // 注册xib中使用的自定义cell
     [self.collectionView registerNib:[UINib nibWithNibName:@"HMCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
-    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
-    layout.itemSize = CGSizeMake(305, 305);
+    
+    // 根据当前屏幕尺寸,计算布局参数 (比如说间距)
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    [self viewWillTransitionToSize:screenSize withTransitionCoordinator:nil];
+    
     
     self.collectionView.backgroundColor = HMRGBColor(224, 224, 224);
     

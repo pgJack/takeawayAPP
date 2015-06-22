@@ -24,3 +24,9 @@ NSString * const HMDistrictDidChangeNotification = @"HMDistrictDidChangeNotifica
 NSString * const HMCurrentDistrictKey = @"HMCurrentDistrictKey";
 /** 通过这个key可以取出当前子区域的索引 */
 NSString * const HMCurrentSubdistrictIndexKey = @"HMCurrentSubdistrictIndexKey";
+
+// 数值
+CGFloat HMScreenMaxWH = 1024;
+CGFloat HMScreenMinWH = 768;
+
+

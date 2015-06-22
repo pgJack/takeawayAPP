@@ -7,7 +7,7 @@
 //
 
 #import "HMCollectionViewCell.h"
-#import "HMCenterLineLabel.h"
+#import "HMCenterLineLabel.h"       
 
 @interface HMCollectionViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
