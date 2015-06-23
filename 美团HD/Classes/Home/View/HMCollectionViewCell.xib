@@ -109,7 +109,7 @@
                 <outlet property="descLabel" destination="kWA-Kr-2Gc" id="WeX-Zc-VfU"/>
                 <outlet property="imageView" destination="DIX-ql-FiH" id="5Vg-Jc-Toc"/>
                 <outlet property="listPriceLabel" destination="VlA-yB-eNY" id="W3R-aD-aav"/>
-                <outlet property="perchaseCountLabel" destination="Wcf-fn-nNd" id="RHu-8T-5jC"/>
+                <outlet property="purchaseCountLabel" destination="Wcf-fn-nNd" id="cZK-Cm-2IL"/>
                 <outlet property="titleLabel" destination="HwP-lt-Z9d" id="OAN-1N-GDN"/>
             </connections>
             <point key="canvasLocation" x="255.5" y="235.5"/>

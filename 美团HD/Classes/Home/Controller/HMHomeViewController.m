@@ -342,7 +342,7 @@ static NSString * const reuseIdentifier = @"deal";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HMCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    // Configure the cell
+    cell.deal = self.deals[indexPath.item];
     
     return cell;
 }

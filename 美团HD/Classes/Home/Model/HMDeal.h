@@ -21,6 +21,10 @@
 @property (nonatomic,copy) NSString *current_price;
 /** 团购当前已购买数 */
 @property (nonatomic,copy) NSString *purchase_count;
+/** 团购图片链接，最大图片尺寸450×280 */
+@property (nonatomic,copy) NSString *image_url;
+/** 小尺寸团购图片链接，最大图片尺寸160×100 */
+@property (nonatomic,copy) NSString *s_image_url;
 
 
 @end
