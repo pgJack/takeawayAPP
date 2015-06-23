@@ -46,6 +46,7 @@
 		18C3F0B01B340C14007808E1 /* HMCenterLineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C3F0AF1B340C14007808E1 /* HMCenterLineLabel.m */; };
 		18C3F0B91B341CED007808E1 /* HMDeal.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C3F0B81B341CED007808E1 /* HMDeal.m */; };
 		18C3F0BC1B341E2B007808E1 /* HMFineDealResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C3F0BB1B341E2B007808E1 /* HMFineDealResult.m */; };
+		18C3F0C21B3938BE007808E1 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C3F0C11B3938BE007808E1 /* NSString+Extension.m */; };
 		18EA2F581B30194600EF27E0 /* HMCityResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EA2F571B30194600EF27E0 /* HMCityResultViewController.m */; };
 		18EA2F5E1B3067DF00EF27E0 /* HMCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EA2F5D1B3067DF00EF27E0 /* HMCity.m */; };
 		18EA2F64248E08F800EF27E0 /* HMDistrict.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EA2F63248E08F800EF27E0 /* HMDistrict.m */; };
@@ -133,6 +134,8 @@
 		18C3F0B81B341CED007808E1 /* HMDeal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMDeal.m; sourceTree = "<group>"; };
 		18C3F0BA1B341E2B007808E1 /* HMFineDealResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMFineDealResult.h; sourceTree = "<group>"; };
 		18C3F0BB1B341E2B007808E1 /* HMFineDealResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMFineDealResult.m; sourceTree = "<group>"; };
+		18C3F0C01B3938BE007808E1 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		18C3F0C11B3938BE007808E1 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		18EA2F561B30194600EF27E0 /* HMCityResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMCityResultViewController.h; sourceTree = "<group>"; };
 		18EA2F571B30194600EF27E0 /* HMCityResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMCityResultViewController.m; sourceTree = "<group>"; };
 		18EA2F5C1B3067DF00EF27E0 /* HMCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMCity.h; sourceTree = "<group>"; };
@@ -364,6 +367,8 @@
 				182D37412493BA9D0086DD00 /* UIView+Extension.m */,
 				182D374E249446740086DD00 /* UIBarButtonItem+Extension.h */,
 				182D374F249446740086DD00 /* UIBarButtonItem+Extension.m */,
+				18C3F0C01B3938BE007808E1 /* NSString+Extension.h */,
+				18C3F0C11B3938BE007808E1 /* NSString+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -586,6 +591,7 @@
 				18C3F0AC1B3408E6007808E1 /* HMCollectionViewCell.m in Sources */,
 				185F9220249059DE00A53064 /* HMHomeViewController.m in Sources */,
 				182D37692496575A0086DD00 /* HMCategoryViewController.m in Sources */,
+				18C3F0C21B3938BE007808E1 /* NSString+Extension.m in Sources */,
 				18A059841B1EE6C700E17CCE /* AppDelegate.m in Sources */,
 				189C0F76248F93D8004D1F61 /* HMCategory.m in Sources */,
 				18A059851B1EE6C700E17CCE /* main.m in Sources */,

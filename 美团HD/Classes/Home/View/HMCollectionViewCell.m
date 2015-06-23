@@ -43,7 +43,9 @@
     // 原价
     self.listPriceLabel.text = [NSString stringWithFormat:@"￥%@",deal.list_price];
     // 现价
-    self.currentPriceLabel.text = [NSString stringWithFormat:@"￥%@",deal.current_price];
+//    self.currentPriceLabel.text = [NSString stringWithFormat:@"￥%@", [NSString dealedPriceString:deal.current_price]];
+    //    self.currentPriceLabel.text = [NSString stringWithFormat:@"￥%@", deal.current_price.dealedPriceString];
+    self.currentPriceLabel.text = [NSString stringWithFormat:@"￥%@", deal.current_price];
     // 购买数
     self.purchaseCountLabel.text = [NSString stringWithFormat:@"已售%@",deal.purchase_count];
 }
