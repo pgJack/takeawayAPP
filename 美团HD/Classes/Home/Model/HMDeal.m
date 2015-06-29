@@ -17,11 +17,6 @@
     return @{@"desc" : @"description"};
 }
 
-//- (NSString *)current_price
-//{
-//    return _current_price.dealedPriceString;
-//}
-
 - (void)setCurrent_price:(NSString *)current_price
 {
     _current_price = current_price.dealedPriceString;

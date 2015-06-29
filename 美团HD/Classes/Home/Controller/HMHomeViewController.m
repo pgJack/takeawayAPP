@@ -66,6 +66,7 @@ static NSString * const reuseIdentifier = @"deal";
     CGFloat screenW = size.width;
     // 根据屏幕尺寸决定每行的列数
     int cols = (screenW == HMScreenMaxWH) ? 3 : 2;
+    
     // 一行之中所有cell的中宽度
     CGFloat allCellW = cols * layout.itemSize.width;
     // cell之间的间距

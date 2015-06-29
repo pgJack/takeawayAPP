@@ -18,17 +18,31 @@
 @property (weak, nonatomic) IBOutlet UILabel *currentPriceLabel;
 @property (weak, nonatomic) IBOutlet HMCenterLineLabel *listPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *purchaseCountLabel;
+/** 如果方法以new,alloc,init开头,那么这些方法必须返回跟方法调用者同一类型的对象 */
+@property (weak, nonatomic) IBOutlet UIImageView *dealNewMark;
 
 
 @end
 
 @implementation HMCollectionViewCell
 
-- (void)drawRect:(CGRect)rect
+- (void)awakeFromNib
 {
-    UIImage *image = [UIImage imageNamed:@"bg_dealcell"];
-    [image drawInRect:rect];
+    self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_dealcell"]];
 }
+
+//- (void)layoutSubviews
+//{
+//    [super layoutSubviews];
+//    
+//    [self setNeedsDisplay];
+//}
+//
+//- (void)drawRect:(CGRect)rect
+//{
+//    UIImage *image = [UIImage imageNamed:@"bg_dealcell"];
+//    [image drawInRect:rect];
+//}
 
 - (void)setDeal:(HMDeal *)deal
 {
@@ -43,11 +57,35 @@
     // 原价
     self.listPriceLabel.text = [NSString stringWithFormat:@"￥%@",deal.list_price];
     // 现价
-//    self.currentPriceLabel.text = [NSString stringWithFormat:@"￥%@", [NSString dealedPriceString:deal.current_price]];
-    //    self.currentPriceLabel.text = [NSString stringWithFormat:@"￥%@", deal.current_price.dealedPriceString];
     self.currentPriceLabel.text = [NSString stringWithFormat:@"￥%@", deal.current_price];
     // 购买数
     self.purchaseCountLabel.text = [NSString stringWithFormat:@"已售%@",deal.purchase_count];
+    // 新单
+    // 获得今天的年月日
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy-MM-dd";
+    NSString *now = [fmt stringFromDate:[NSDate date]];
+    // 比较
+    // now : 2008-08-08
+    // publish_date : 2009-08-09
+    NSComparisonResult result = [now compare:deal.publish_date];
+    self.dealNewMark.hidden = (result == NSOrderedDescending);
+    
+//    self.dealNewMark.hidden = (result == NSOrderedDescending) ? YES : NO;
+//    if (result == NSOrderedSame || result == NSOrderedAscending) { // 新单
+//        self.dealNewMark.hidden = NO;
+//    } else { // 非新单
+//        self.dealNewMark.hidden = YES;
+//    }
+    
+    /*
+     NSOrderedAscending = -1L, 升序 (左边 < 右边)
+     NSOrderedSame,            相同 (左边 == 右边)
+     NSOrderedDescending       降序 (左边 > 右边)
+     */
+    
+    
+    
 }
 
 @end
