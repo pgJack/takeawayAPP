@@ -20,6 +20,8 @@
 		182D377E249671860086DD00 /* sorts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 182D377A249671860086DD00 /* sorts.plist */; };
 		182D3784249671860086DD00 /* HMSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D3783249671860086DD00 /* HMSort.m */; };
 		182D378C249671860086DD00 /* HMDataTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D378B249671860086DD00 /* HMDataTool.m */; };
+		1846C2391B621D9A00CDE868 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1846C2361B621D9A00CDE868 /* MBProgressHUD.bundle */; };
+		1846C23A1B621D9A00CDE868 /* MBProgressHUD+HMExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846C2381B621D9A00CDE868 /* MBProgressHUD+HMExtension.m */; };
 		185F9210248FD6E100A53064 /* HMPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F920F248FD6E100A53064 /* HMPerson.m */; };
 		185F9220249059DE00A53064 /* HMHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F921F249059DE00A53064 /* HMHomeViewController.m */; };
 		185F92282492652A00A53064 /* HMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F92272492652A00A53064 /* HMNavigationController.m */; };
@@ -85,6 +87,9 @@
 		182D3783249671860086DD00 /* HMSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSort.m; sourceTree = "<group>"; };
 		182D378A249671860086DD00 /* HMDataTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMDataTool.h; sourceTree = "<group>"; };
 		182D378B249671860086DD00 /* HMDataTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMDataTool.m; sourceTree = "<group>"; };
+		1846C2361B621D9A00CDE868 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		1846C2371B621D9A00CDE868 /* MBProgressHUD+HMExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+HMExtension.h"; sourceTree = "<group>"; };
+		1846C2381B621D9A00CDE868 /* MBProgressHUD+HMExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+HMExtension.m"; sourceTree = "<group>"; };
 		185F920E248FD6E100A53064 /* HMPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPerson.h; sourceTree = "<group>"; };
 		185F920F248FD6E100A53064 /* HMPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPerson.m; sourceTree = "<group>"; };
 		185F9211248FD72600A53064 /* HMSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMSingleton.h; sourceTree = "<group>"; };
@@ -363,6 +368,9 @@
 		18A059801B1EE6C700E17CCE /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				1846C2361B621D9A00CDE868 /* MBProgressHUD.bundle */,
+				1846C2371B621D9A00CDE868 /* MBProgressHUD+HMExtension.h */,
+				1846C2381B621D9A00CDE868 /* MBProgressHUD+HMExtension.m */,
 				182D37402493BA9D0086DD00 /* UIView+Extension.h */,
 				182D37412493BA9D0086DD00 /* UIView+Extension.m */,
 				182D374E249446740086DD00 /* UIBarButtonItem+Extension.h */,
@@ -504,6 +512,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1846C2391B621D9A00CDE868 /* MBProgressHUD.bundle in Resources */,
 				182D377E249671860086DD00 /* sorts.plist in Resources */,
 				18C3F0AD1B3408E6007808E1 /* HMCollectionViewCell.xib in Resources */,
 				189C0F8E2493B488004D1F61 /* HMDistrictViewController.xib in Resources */,
@@ -590,6 +599,7 @@
 				189C0F7F2490BF54004D1F61 /* HMDropDownLeftCell.m in Sources */,
 				18C3F0AC1B3408E6007808E1 /* HMCollectionViewCell.m in Sources */,
 				185F9220249059DE00A53064 /* HMHomeViewController.m in Sources */,
+				1846C23A1B621D9A00CDE868 /* MBProgressHUD+HMExtension.m in Sources */,
 				182D37692496575A0086DD00 /* HMCategoryViewController.m in Sources */,
 				18C3F0C21B3938BE007808E1 /* NSString+Extension.m in Sources */,
 				18A059841B1EE6C700E17CCE /* AppDelegate.m in Sources */,

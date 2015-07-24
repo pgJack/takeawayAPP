@@ -19,7 +19,10 @@
 #import "DPAPI.h"
 #import "HMFineDealResult.h"
 #import <MJExtension.h>
+#import <MJRefresh.h>
+#import "MBProgressHUD+HMExtension.h"
 #import "HMCollectionViewCell.h"
+#import <PureLayout.h>
 
 @interface HMHomeViewController ()
 /** 分类item */
@@ -32,7 +35,14 @@
 /** 存放所有的团购 */
 @property (nonatomic, strong) NSMutableArray *deals;
 
+/** 没有团购数据时显示的提醒图片 */
+@property(nonatomic, weak) UIImageView *noDataView;
+
 // 记录一些当前数据
+/** 返回结果 */
+@property (nonatomic, strong) HMFineDealResult *result;
+/** 当前页码 */
+@property (nonatomic, assign) int currentPage;
 /** 当前城市 */
 @property (nonatomic, strong) HMCity *currentCity;
 // 当前的类别名称 (发给服务器)
@@ -41,6 +51,8 @@
 @property (nonatomic, copy) NSString *currentDistrictName;
 /** 当前排序模型 */
 @property (nonatomic, strong) HMSort *currentSort;
+/** 当前正在发送的网络请求 */
+@property (nonatomic, strong) DPRequest *currentRequest;
 
 @end
 
@@ -53,6 +65,23 @@
         _deals = [NSMutableArray array];
     }
     return _deals;
+}
+
+- (UIImageView *)noDataView
+{
+    if (_noDataView == nil) {
+        UIImageView *noDataView = [[UIImageView alloc] init];
+        noDataView.image = [UIImage imageNamed:@"icon_deals_empty"];
+        noDataView.contentMode = UIViewContentModeCenter;
+        [self.view addSubview:noDataView];
+        
+        // 约束
+        [noDataView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero];
+        
+        // 赋值
+        self.noDataView = noDataView;
+    }
+    return _noDataView;
 }
 
 static NSString * const reuseIdentifier = @"deal";
@@ -86,6 +115,8 @@ static NSString * const reuseIdentifier = @"deal";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    self.collectionView.alwaysBounceVertical = YES;
+    
     // 注册xib中使用的自定义cell
     [self.collectionView registerNib:[UINib nibWithNibName:@"HMCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
     
@@ -107,6 +138,24 @@ static NSString * const reuseIdentifier = @"deal";
     
     // 监听通知
     [self setupNotes];
+    
+    // 增加一个刷新功能
+    [self setupRefresh];
+}
+
+/**
+ *  刷新功能
+ */
+- (void)setupRefresh
+{
+    // 上拉加载更多 - 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadMoreData方法）
+    self.collectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreDeals)];
+    
+    // 下拉刷新 - 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
+    self.collectionView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewDeals)];
+    self.collectionView.footer.hidden = YES;
+    
+    
 }
 
 /**
@@ -123,6 +172,9 @@ static NSString * const reuseIdentifier = @"deal";
 - (void)dealloc
 {
     [HMNoteCenter removeObserver:self];
+    
+    // 清除正在发送的请求
+    [self.currentRequest disconnect];
 }
 
 /**
@@ -189,7 +241,10 @@ static NSString * const reuseIdentifier = @"deal";
     topItem.subtitle = self.currentSort.label;
     
     // 重新发送请求给服务器
-    [self loadNewDeals];
+//    [self loadNewDeals];
+    
+    // 马上进入刷新状态
+    [self.collectionView.header beginRefreshing];
 }
 
 - (void)categoryDidChange:(NSNotification *)note
@@ -214,7 +269,10 @@ static NSString * const reuseIdentifier = @"deal";
     }
     
     // 重新发送请求给服务器
-    [self loadNewDeals];
+//    [self loadNewDeals];
+    
+    // 马上进入刷新状态
+    [self.collectionView.header beginRefreshing];
 }
 
 - (void)cityDidChange:(NSNotification *)note
@@ -227,7 +285,10 @@ static NSString * const reuseIdentifier = @"deal";
     topItem.subtitle = nil;
     
     // 重新发送请求给服务器
-    [self loadNewDeals];
+//    [self loadNewDeals];
+    
+    // 马上进入刷新状态
+    [self.collectionView.header beginRefreshing];
 }
 
 - (void)districtDidChange:(NSNotification *)note
@@ -249,7 +310,10 @@ static NSString * const reuseIdentifier = @"deal";
     }
     
     // 重新发送请求给服务器
-    [self loadNewDeals];
+//    [self loadNewDeals];
+    
+    // 马上进入刷新状态
+    [self.collectionView.header beginRefreshing];
 }
 
 #pragma mark - 导航栏事件处理
@@ -305,6 +369,11 @@ static NSString * const reuseIdentifier = @"deal";
 {
     if (self.currentCity == nil) return;
     
+    //  取消上一个请求
+    [self.currentRequest disconnect];
+    // 结束刷新
+    [self.collectionView.footer endRefreshing];
+    
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
     // 城市
@@ -315,29 +384,97 @@ static NSString * const reuseIdentifier = @"deal";
     if (self.currentCategoryName) params[@"category"] = self.currentCategoryName;
     // 排序
     if (self.currentSort) params[@"sort"] = @(self.currentSort.value);
+    // 页码
+//    params[@"page"] = @(1);
     
     // 发送请求给服务器
-    [[DPAPI sharedInstance] request:@"v1/deal/find_deals" params:params success:^(id json) {
-        HMFineDealResult *result = [HMFineDealResult objectWithKeyValues:json];
+    self.currentRequest = [[DPAPI sharedInstance] request:@"v1/deal/find_deals" params:params success:^(id json) {
+        self.result = [HMFineDealResult objectWithKeyValues:json];
         
         // 移除旧数据
         [self.deals removeAllObjects];
         
         // 添加新数据
-        [self.deals addObjectsFromArray:result.deals];
+        [self.deals addObjectsFromArray:self.result.deals];
         
         // 刷新表格
         [self.collectionView reloadData];
         
+        // 停止刷新状态
+        [self.collectionView.header endRefreshing];
+        
+        self.currentPage = 1;
+        
     } failure:^(NSError *error) {
-        HMLog(@"error - %@",error);
+        // 失败信息
+        [MBProgressHUD showError:@"网络繁忙,请稍后再试"];
+        
+        // 停止刷新状态
+        [self.collectionView.header endRefreshing];
     }];
 }
 
+- (void)loadMoreDeals
+{
+    
+    if (self.currentCity == nil) return;
+    
+    //  取消上一个请求
+    [self.currentRequest disconnect];
+    // 停止刷新状态
+    [self.collectionView.header endRefreshing];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    int tempPage = self.currentPage;
+    tempPage ++;
+    
+    // 城市
+    params[@"city"] = self.currentCity.name;
+    // 区域
+    if (self.currentDistrictName) params[@"region"] = self.currentDistrictName;
+    // 分类
+    if (self.currentCategoryName) params[@"category"] = self.currentCategoryName;
+    // 排序
+    if (self.currentSort) params[@"sort"] = @(self.currentSort.value);
+    // 页码
+    params[@"page"] = @(tempPage);
+    
+    // 发送请求给服务器
+    self.currentRequest = [[DPAPI sharedInstance] request:@"v1/deal/find_deals" params:params success:^(id json) {
+        self.result = [HMFineDealResult objectWithKeyValues:json];
+        
+        // 添加新数据
+        [self.deals addObjectsFromArray:self.result.deals];
+        
+        // 刷新表格
+        [self.collectionView reloadData];
+        
+        // 调用初始化refresh 方法
+        [self setupRefresh];
+        
+        // 修改页码
+        self.currentPage = tempPage;
+        
+    } failure:^(NSError *error) {
+        // 失败信息
+        [MBProgressHUD showError:@"网络繁忙,请稍后再试"];
+        
+        // 结束刷新
+        [self.collectionView.footer endRefreshing];
+        
+        // 调用初始化refresh 方法
+        [self setupRefresh];
+
+    }];
+}
 
 #pragma mark <UICollectionViewDataSource>
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.deals.count;
+    NSUInteger count = self.deals.count;
+    self.noDataView.hidden = (count > 0);
+    self.collectionView.footer.hidden = (self.deals.count == self.result.total_count);
+    return count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
