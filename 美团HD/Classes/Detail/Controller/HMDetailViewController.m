@@ -14,7 +14,6 @@
 #import "MBProgressHUD+HMExtension.h"
 #import "HMGetSingleDealResult.h"
 #import <MJExtension.h>
-#import "HMRestriction.h"
 
 @interface HMDetailViewController () <UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -88,10 +87,8 @@
         HMGetSingleDealResult *result = [HMGetSingleDealResult objectWithKeyValues:json];
         self.deal =  [result.deals lastObject];
         
-        self.anyTimeRefuntableBtn.selected = self.deal.restrictions.is_refundable;
-//        self.anyTimeRefuntableBtn.enabled = YES;
-        self.expireRefuntableBtn.selected = self.deal.restrictions.is_refundable;
-//        self.expireRefuntableBtn.enabled = YES;
+        self.anyTimeRefuntableBtn.selected = self.deal.is_refundable;
+        self.expireRefuntableBtn.selected = self.deal.is_refundable;
     } failure:^(NSError *error) {
         [MBProgressHUD showError:@"找不到指定的团购信息"];
     }];

@@ -14,7 +14,8 @@
 
 + (NSDictionary *)replacedKeyFromPropertyName
 {
-    return @{@"desc" : @"description"};
+    return @{@"desc" : @"description",
+             @"is_refundable" : @"restrictions.is_refundable"};
 }
 
 - (void)setCurrent_price:(NSString *)current_price

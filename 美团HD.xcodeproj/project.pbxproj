@@ -25,7 +25,6 @@
 		1846C2471B633E7600CDE868 /* HMDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846C2451B633E7600CDE868 /* HMDetailViewController.m */; };
 		1846C2481B633E7600CDE868 /* HMDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1846C2461B633E7600CDE868 /* HMDetailViewController.xib */; };
 		1850E4B31B679E5C0021E25E /* HMGetSingleDealResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1850E4B21B679E5C0021E25E /* HMGetSingleDealResult.m */; };
-		1850E4B61B679F310021E25E /* HMRestriction.m in Sources */ = {isa = PBXBuildFile; fileRef = 1850E4B51B679F310021E25E /* HMRestriction.m */; };
 		185F9210248FD6E100A53064 /* HMPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F920F248FD6E100A53064 /* HMPerson.m */; };
 		185F9220249059DE00A53064 /* HMHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F921F249059DE00A53064 /* HMHomeViewController.m */; };
 		185F92282492652A00A53064 /* HMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F92272492652A00A53064 /* HMNavigationController.m */; };
@@ -99,8 +98,6 @@
 		1846C2461B633E7600CDE868 /* HMDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HMDetailViewController.xib; sourceTree = "<group>"; };
 		1850E4B11B679E5C0021E25E /* HMGetSingleDealResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMGetSingleDealResult.h; sourceTree = "<group>"; };
 		1850E4B21B679E5C0021E25E /* HMGetSingleDealResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMGetSingleDealResult.m; sourceTree = "<group>"; };
-		1850E4B41B679F310021E25E /* HMRestriction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMRestriction.h; sourceTree = "<group>"; };
-		1850E4B51B679F310021E25E /* HMRestriction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMRestriction.m; sourceTree = "<group>"; };
 		185F920E248FD6E100A53064 /* HMPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPerson.h; sourceTree = "<group>"; };
 		185F920F248FD6E100A53064 /* HMPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPerson.m; sourceTree = "<group>"; };
 		185F9211248FD72600A53064 /* HMSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMSingleton.h; sourceTree = "<group>"; };
@@ -356,8 +353,6 @@
 				18C3F0BB1B341E2B007808E1 /* HMFineDealResult.m */,
 				1850E4B11B679E5C0021E25E /* HMGetSingleDealResult.h */,
 				1850E4B21B679E5C0021E25E /* HMGetSingleDealResult.m */,
-				1850E4B41B679F310021E25E /* HMRestriction.h */,
-				1850E4B51B679F310021E25E /* HMRestriction.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -613,7 +608,6 @@
 				189C0F882490E302004D1F61 /* HMConst.m in Sources */,
 				182D37422493BA9D0086DD00 /* UIView+Extension.m in Sources */,
 				18A05997248DCD4900E17CCE /* DPRequest.m in Sources */,
-				1850E4B61B679F310021E25E /* HMRestriction.m in Sources */,
 				18C3F0BC1B341E2B007808E1 /* HMFineDealResult.m in Sources */,
 				185F9210248FD6E100A53064 /* HMPerson.m in Sources */,
 				182D3784249671860086DD00 /* HMSort.m in Sources */,
