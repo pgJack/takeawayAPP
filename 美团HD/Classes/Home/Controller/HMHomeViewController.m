@@ -23,6 +23,8 @@
 #import "MBProgressHUD+HMExtension.h"
 #import "HMCollectionViewCell.h"
 #import <PureLayout.h>
+#import "HMDetailViewController.h"
+#import "HMDataTool.h"
 
 @interface HMHomeViewController ()
 /** 分类item */
@@ -120,11 +122,6 @@ static NSString * const reuseIdentifier = @"deal";
     // 注册xib中使用的自定义cell
     [self.collectionView registerNib:[UINib nibWithNibName:@"HMCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
     
-    // 根据当前屏幕尺寸,计算布局参数 (比如说间距)
-    CGSize screenSize = [UIScreen mainScreen].bounds.size;
-    [self viewWillTransitionToSize:screenSize withTransitionCoordinator:nil];
-    
-    
     self.collectionView.backgroundColor = HMRGBColor(224, 224, 224);
     
     // self.view  == self.tableView
@@ -143,6 +140,15 @@ static NSString * const reuseIdentifier = @"deal";
     [self setupRefresh];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    // 根据当前屏幕尺寸,计算布局参数 (比如说间距)
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    [self viewWillTransitionToSize:screenSize withTransitionCoordinator:nil];
+}
+
 /**
  *  刷新功能
  */
@@ -155,7 +161,10 @@ static NSString * const reuseIdentifier = @"deal";
     self.collectionView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewDeals)];
     self.collectionView.footer.hidden = YES;
     
-    
+#warning TODO
+    self.currentCity = [HMDataTool cityWithName:@"北京"];
+    // 马上进入刷新状态
+    [self.collectionView.header beginRefreshing];
 }
 
 /**
@@ -487,33 +496,11 @@ static NSString * const reuseIdentifier = @"deal";
 
 #pragma mark <UICollectionViewDelegate>
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    HMDetailViewController *detailVc = [[HMDetailViewController alloc] init];
+    detailVc.deal = self.deals[indexPath.item];
+    [self presentViewController:detailVc animated:YES completion:nil];
 }
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end

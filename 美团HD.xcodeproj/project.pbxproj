@@ -22,6 +22,10 @@
 		182D378C249671860086DD00 /* HMDataTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D378B249671860086DD00 /* HMDataTool.m */; };
 		1846C2391B621D9A00CDE868 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1846C2361B621D9A00CDE868 /* MBProgressHUD.bundle */; };
 		1846C23A1B621D9A00CDE868 /* MBProgressHUD+HMExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846C2381B621D9A00CDE868 /* MBProgressHUD+HMExtension.m */; };
+		1846C2471B633E7600CDE868 /* HMDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846C2451B633E7600CDE868 /* HMDetailViewController.m */; };
+		1846C2481B633E7600CDE868 /* HMDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1846C2461B633E7600CDE868 /* HMDetailViewController.xib */; };
+		1850E4B31B679E5C0021E25E /* HMGetSingleDealResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1850E4B21B679E5C0021E25E /* HMGetSingleDealResult.m */; };
+		1850E4B61B679F310021E25E /* HMRestriction.m in Sources */ = {isa = PBXBuildFile; fileRef = 1850E4B51B679F310021E25E /* HMRestriction.m */; };
 		185F9210248FD6E100A53064 /* HMPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F920F248FD6E100A53064 /* HMPerson.m */; };
 		185F9220249059DE00A53064 /* HMHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F921F249059DE00A53064 /* HMHomeViewController.m */; };
 		185F92282492652A00A53064 /* HMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F92272492652A00A53064 /* HMNavigationController.m */; };
@@ -90,6 +94,13 @@
 		1846C2361B621D9A00CDE868 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		1846C2371B621D9A00CDE868 /* MBProgressHUD+HMExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+HMExtension.h"; sourceTree = "<group>"; };
 		1846C2381B621D9A00CDE868 /* MBProgressHUD+HMExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+HMExtension.m"; sourceTree = "<group>"; };
+		1846C2441B633E7600CDE868 /* HMDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMDetailViewController.h; sourceTree = "<group>"; };
+		1846C2451B633E7600CDE868 /* HMDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMDetailViewController.m; sourceTree = "<group>"; };
+		1846C2461B633E7600CDE868 /* HMDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HMDetailViewController.xib; sourceTree = "<group>"; };
+		1850E4B11B679E5C0021E25E /* HMGetSingleDealResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMGetSingleDealResult.h; sourceTree = "<group>"; };
+		1850E4B21B679E5C0021E25E /* HMGetSingleDealResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMGetSingleDealResult.m; sourceTree = "<group>"; };
+		1850E4B41B679F310021E25E /* HMRestriction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMRestriction.h; sourceTree = "<group>"; };
+		1850E4B51B679F310021E25E /* HMRestriction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMRestriction.m; sourceTree = "<group>"; };
 		185F920E248FD6E100A53064 /* HMPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPerson.h; sourceTree = "<group>"; };
 		185F920F248FD6E100A53064 /* HMPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPerson.m; sourceTree = "<group>"; };
 		185F9211248FD72600A53064 /* HMSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMSingleton.h; sourceTree = "<group>"; };
@@ -198,6 +209,24 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
+		1846C2421B633E5700CDE868 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				1846C2431B633E5700CDE868 /* Controller */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		1846C2431B633E5700CDE868 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1846C2441B633E7600CDE868 /* HMDetailViewController.h */,
+				1846C2451B633E7600CDE868 /* HMDetailViewController.m */,
+				1846C2461B633E7600CDE868 /* HMDetailViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		185F921D2490598100A53064 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +319,7 @@
 		18A059761B1EE6C700E17CCE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1846C2421B633E5700CDE868 /* Detail */,
 				18A059771B1EE6C700E17CCE /* Home */,
 				18A0597D1B1EE6C700E17CCE /* Other */,
 			);
@@ -324,6 +354,10 @@
 				18C3F0B81B341CED007808E1 /* HMDeal.m */,
 				18C3F0BA1B341E2B007808E1 /* HMFineDealResult.h */,
 				18C3F0BB1B341E2B007808E1 /* HMFineDealResult.m */,
+				1850E4B11B679E5C0021E25E /* HMGetSingleDealResult.h */,
+				1850E4B21B679E5C0021E25E /* HMGetSingleDealResult.m */,
+				1850E4B41B679F310021E25E /* HMRestriction.h */,
+				1850E4B51B679F310021E25E /* HMRestriction.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -516,6 +550,7 @@
 				182D377E249671860086DD00 /* sorts.plist in Resources */,
 				18C3F0AD1B3408E6007808E1 /* HMCollectionViewCell.xib in Resources */,
 				189C0F8E2493B488004D1F61 /* HMDistrictViewController.xib in Resources */,
+				1846C2481B633E7600CDE868 /* HMDetailViewController.xib in Resources */,
 				189C0F982493CAAF004D1F61 /* HMCityViewController.xib in Resources */,
 				18A059591B1EDC2000E17CCE /* Main.storyboard in Resources */,
 				189C0F70248F4548004D1F61 /* HMCategoryViewController.xib in Resources */,
@@ -578,6 +613,7 @@
 				189C0F882490E302004D1F61 /* HMConst.m in Sources */,
 				182D37422493BA9D0086DD00 /* UIView+Extension.m in Sources */,
 				18A05997248DCD4900E17CCE /* DPRequest.m in Sources */,
+				1850E4B61B679F310021E25E /* HMRestriction.m in Sources */,
 				18C3F0BC1B341E2B007808E1 /* HMFineDealResult.m in Sources */,
 				185F9210248FD6E100A53064 /* HMPerson.m in Sources */,
 				182D3784249671860086DD00 /* HMSort.m in Sources */,
@@ -600,7 +636,9 @@
 				18C3F0AC1B3408E6007808E1 /* HMCollectionViewCell.m in Sources */,
 				185F9220249059DE00A53064 /* HMHomeViewController.m in Sources */,
 				1846C23A1B621D9A00CDE868 /* MBProgressHUD+HMExtension.m in Sources */,
+				1850E4B31B679E5C0021E25E /* HMGetSingleDealResult.m in Sources */,
 				182D37692496575A0086DD00 /* HMCategoryViewController.m in Sources */,
+				1846C2471B633E7600CDE868 /* HMDetailViewController.m in Sources */,
 				18C3F0C21B3938BE007808E1 /* NSString+Extension.m in Sources */,
 				18A059841B1EE6C700E17CCE /* AppDelegate.m in Sources */,
 				189C0F76248F93D8004D1F61 /* HMCategory.m in Sources */,

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class HMRestriction;
+
 @interface HMDeal : NSObject
 /** 团购单ID */
 @property (nonatomic,copy) NSString *deal_id;
@@ -29,7 +31,11 @@
 @property (nonatomic,copy) NSString *publish_date;
 /** 团购单的截止购买日期 */
 @property (nonatomic,copy) NSString *purchase_deadline;
-
-
+/** 团购Web页面链接，适用于网页应用 */
+@property (nonatomic,copy) NSString *deal_url;
+/** 团购HTML5页面链接，适用于移动应用和联网车载应用 */
+@property (nonatomic,copy) NSString *deal_h5_url;
+/** 是否支持随时退款，0：不是，1：是 */
+@property (nonatomic, strong) HMRestriction *restrictions;
 
 @end
