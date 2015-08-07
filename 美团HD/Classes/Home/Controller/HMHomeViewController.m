@@ -25,8 +25,11 @@
 #import <PureLayout.h>
 #import "HMDetailViewController.h"
 #import "HMDataTool.h"
+#import "AwesomeMenu.h"
+#import "HMCollectViewController.h"
+#import "HMNavigationController.h"
 
-@interface HMHomeViewController ()
+@interface HMHomeViewController () <AwesomeMenuDelegate>
 /** 分类item */
 @property(nonatomic, weak) UIBarButtonItem *categoryItem;
 /** 区域item */
@@ -138,6 +141,53 @@ static NSString * const reuseIdentifier = @"deal";
     
     // 增加一个刷新功能
     [self setupRefresh];
+    
+    // 添加环形菜单
+    [self setupAwesomeMenu];
+}
+
+/**
+ *  环形菜单
+ */
+- (void)setupAwesomeMenu
+{
+    // 所有item的公共背景
+    UIImage *itemBg = [UIImage imageNamed:@"bg_pathMenu_black_normal"];
+    
+    // 创建菜单item (按钮)
+    // 1. 个人信息
+    AwesomeMenuItem *personalItem = [[AwesomeMenuItem alloc] initWithImage:itemBg highlightedImage:nil ContentImage:[UIImage imageNamed:@"icon_pathMenu_mine_normal"] highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_mine_highlighted"]];
+    
+    // 2. 收藏
+    AwesomeMenuItem *collectItem = [[AwesomeMenuItem alloc] initWithImage:itemBg highlightedImage:nil ContentImage:[UIImage imageNamed:@"icon_pathMenu_collect_normal"] highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_collect_highlighted"]];
+    
+    // 3. 历史记录
+    AwesomeMenuItem *historyItem = [[AwesomeMenuItem alloc] initWithImage:itemBg highlightedImage:nil ContentImage:[UIImage imageNamed:@"icon_pathMenu_scan_normal"] highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_scan_highlighted"]];
+    
+    // 4. 更多
+    AwesomeMenuItem *moreItem = [[AwesomeMenuItem alloc] initWithImage:itemBg highlightedImage:nil ContentImage:[UIImage imageNamed:@"icon_pathMenu_more_normal"] highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_more_highlighted"]];
+    
+    // 5. 开始按钮
+    AwesomeMenuItem *startItem = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"icon_pathMenu_background_normal"] highlightedImage:[UIImage imageNamed:@"icon_pathMenu_background_highlighted"] ContentImage:[UIImage imageNamed:@"icon_pathMenu_mainMine_normal"] highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_mainMine_highlighted"]];
+    
+    // 创建菜单
+    NSArray *items = @[personalItem, collectItem, historyItem, moreItem];
+    AwesomeMenu *menu = [[AwesomeMenu alloc] initWithFrame:CGRectZero startItem:startItem menuItems:items];
+    menu.delegate = self;
+    menu.alpha = 0.5;
+    [self.view addSubview:menu];
+    
+    // 设置菜单约束
+    [menu autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
+    [menu autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+    CGFloat menuWH = 250;
+    [menu autoSetDimensionsToSize:CGSizeMake(menuWH, menuWH)];
+    
+    // 设置菜单信息
+    menu.menuWholeAngle = M_PI_2;
+    CGFloat margin = 50;
+    menu.startPoint = CGPointMake(margin, menuWH - margin);
+    menu.rotateAddButton = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -239,6 +289,58 @@ static NSString * const reuseIdentifier = @"deal";
     mapItem.customView.width = 50;
     
     self.navigationItem.rightBarButtonItems = @[mapItem, searchItem];
+}
+
+#pragma mark - <AwesomeMenuDelegate>
+
+- (void)awesomeMenu:(AwesomeMenu *)menu didSelectIndex:(NSInteger)idx
+{
+    switch (idx) {
+        case 0: // 个人
+            HMLog(@"个人");
+            break;
+        case 1: { // 收藏
+            HMCollectViewController *collectVc = [[HMCollectViewController alloc] initWithCollectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
+            HMNavigationController *nav = [[HMNavigationController alloc] initWithRootViewController:collectVc];
+            [self presentViewController:nav animated:YES completion:nil];
+            break;
+        }
+        case 2: // 历史
+            HMLog(@"历史");
+            break;
+        case 3: // 更多
+            HMLog(@"更多");
+            break;
+            
+        default:
+            break;
+    }
+    
+    [self awesomeMenuDidFinishAnimationClose:menu];
+}
+
+- (void)awesomeMenuDidFinishAnimationClose:(AwesomeMenu *)menu;
+{
+    menu.contentImage = [UIImage imageNamed:@"icon_pathMenu_mainMine_normal"];
+    menu.highlightedContentImage = [UIImage imageNamed:@"icon_pathMenu_mainMine_highlighted"];
+    menu.alpha = 0.5;
+}
+
+- (void)awesomeMenuDidFinishAnimationOpen:(AwesomeMenu *)menu
+{
+    menu.contentImage = [UIImage imageNamed:@"icon_pathMenu_cross_normal"];
+    menu.highlightedContentImage = [UIImage imageNamed:@"icon_pathMenu_cross_highlighted"];
+    menu.alpha = 1.0;
+}
+
+- (void)awesomeMenuWillAnimateOpen:(AwesomeMenu *)menu
+{
+    
+}
+
+- (void)awesomeMenuWillAnimateClose:(AwesomeMenu *)menu
+{
+    
 }
 
 #pragma mark - 通知处理

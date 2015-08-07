@@ -19,6 +19,17 @@
     // 设置导航栏的主题
     UINavigationBar *bar = [UINavigationBar appearance];
     [bar setBackgroundImage:[UIImage imageNamed:@"bg_navigationBar_normal"] forBarMetrics:UIBarMetricsDefault];
+    
+    // 设置导航栏上面item的文字属性
+    UIBarButtonItem *item = [UIBarButtonItem appearance];
+    // 普通文字的颜色
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+    attrs[NSForegroundColorAttributeName] = HMRGBColor(17, 177, 157);
+    [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
+    // 不可交互的文字颜色
+    NSMutableDictionary *disabelAttrs = [NSMutableDictionary dictionary];
+    disabelAttrs[NSForegroundColorAttributeName] = HMRGBColor(100, 100, 100);
+    [item setTitleTextAttributes:disabelAttrs forState:UIControlStateDisabled];
 }
 
 //- (instancetype)init

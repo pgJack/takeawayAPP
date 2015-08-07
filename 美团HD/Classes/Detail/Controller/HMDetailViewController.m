@@ -14,6 +14,7 @@
 #import "MBProgressHUD+HMExtension.h"
 #import "HMGetSingleDealResult.h"
 #import <MJExtension.h>
+#import "HMDealTool.h"
 
 @interface HMDetailViewController () <UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -26,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *expireRefuntableBtn;
 @property (weak, nonatomic) IBOutlet UIButton *soldNumberBtn;
 @property (weak, nonatomic) IBOutlet UIButton *remainingTimeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *collectBtn;
 
 @end
 
@@ -93,6 +95,9 @@
         [MBProgressHUD showError:@"找不到指定的团购信息"];
     }];
     
+    // 控制收藏按钮的状态
+    self.collectBtn.selected = [HMDealTool isCollected:self.deal];
+    
 }
 
 /**
@@ -117,6 +122,20 @@
  */
 - (IBAction)back {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+/**
+ *  点击了收藏按钮
+ */
+- (IBAction)collect:(UIButton *)button {
+    
+    if (button.isSelected) { // 已经被收藏,现在需要取消收藏
+        [HMDealTool uncollect:self.deal];
+    } else { // 没有被收藏,现在需要收藏
+        [HMDealTool collect:self.deal];
+    }
+    
+    button.selected = !button.isSelected;
 }
 
 /**

@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HMDetailViewController">
             <connections>
                 <outlet property="anyTimeRefuntableBtn" destination="1XQ-X4-HiN" id="RTC-sb-flQ"/>
+                <outlet property="collectBtn" destination="hGO-YY-Mis" id="66i-tu-g9e"/>
                 <outlet property="currentPriceLabel" destination="BuA-vD-nOH" id="BFp-eT-2aE"/>
                 <outlet property="descLabel" destination="47U-xY-d0g" id="X0F-ax-SDX"/>
                 <outlet property="expireRefuntableBtn" destination="dNV-E5-crs" id="QwQ-tR-uRo"/>
@@ -134,6 +135,9 @@
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <state key="selected" image="icon_collect_highlighted"/>
+                                    <connections>
+                                        <action selector="collect:" destination="-1" eventType="touchUpInside" id="g2S-t1-wet"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4U-1R-xb7" userLabel="分享按钮">
                                     <rect key="frame" x="260" y="278" width="60" height="60"/>

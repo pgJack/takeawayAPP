@@ -28,6 +28,10 @@
 		185F9210248FD6E100A53064 /* HMPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F920F248FD6E100A53064 /* HMPerson.m */; };
 		185F9220249059DE00A53064 /* HMHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F921F249059DE00A53064 /* HMHomeViewController.m */; };
 		185F92282492652A00A53064 /* HMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F92272492652A00A53064 /* HMNavigationController.m */; };
+		186BB2261B70615200D27CF3 /* HMDealTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 186BB2251B70615200D27CF3 /* HMDealTool.m */; };
+		186BB2331B71BAD300D27CF3 /* AwesomeMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 186BB2301B71BAD300D27CF3 /* AwesomeMenu.m */; };
+		186BB2341B71BAD300D27CF3 /* AwesomeMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 186BB2321B71BAD300D27CF3 /* AwesomeMenuItem.m */; };
+		186BB23E1B72010700D27CF3 /* HMCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186BB23D1B72010700D27CF3 /* HMCollectViewController.m */; };
 		1886978D2494B80000E5B9CC /* HMCityGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886978C2494B80000E5B9CC /* HMCityGroup.m */; };
 		189C0F70248F4548004D1F61 /* HMCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189C0F6F248F4548004D1F61 /* HMCategoryViewController.xib */; };
 		189C0F76248F93D8004D1F61 /* HMCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C0F75248F93D8004D1F61 /* HMCategory.m */; };
@@ -106,6 +110,14 @@
 		185F921F249059DE00A53064 /* HMHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMHomeViewController.m; sourceTree = "<group>"; };
 		185F92262492652A00A53064 /* HMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMNavigationController.h; sourceTree = "<group>"; };
 		185F92272492652A00A53064 /* HMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMNavigationController.m; sourceTree = "<group>"; };
+		186BB2241B70615200D27CF3 /* HMDealTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMDealTool.h; sourceTree = "<group>"; };
+		186BB2251B70615200D27CF3 /* HMDealTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMDealTool.m; sourceTree = "<group>"; };
+		186BB22F1B71BAD300D27CF3 /* AwesomeMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwesomeMenu.h; sourceTree = "<group>"; };
+		186BB2301B71BAD300D27CF3 /* AwesomeMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeMenu.m; sourceTree = "<group>"; };
+		186BB2311B71BAD300D27CF3 /* AwesomeMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwesomeMenuItem.h; sourceTree = "<group>"; };
+		186BB2321B71BAD300D27CF3 /* AwesomeMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeMenuItem.m; sourceTree = "<group>"; };
+		186BB23C1B72010700D27CF3 /* HMCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMCollectViewController.h; sourceTree = "<group>"; };
+		186BB23D1B72010700D27CF3 /* HMCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMCollectViewController.m; sourceTree = "<group>"; };
 		1886978B2494B80000E5B9CC /* HMCityGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMCityGroup.h; sourceTree = "<group>"; };
 		1886978C2494B80000E5B9CC /* HMCityGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMCityGroup.m; sourceTree = "<group>"; };
 		189C0F6F248F4548004D1F61 /* HMCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HMCategoryViewController.xib; sourceTree = "<group>"; };
@@ -209,6 +221,7 @@
 		1846C2421B633E5700CDE868 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				186BB2231B70614500D27CF3 /* Tool */,
 				1846C2431B633E5700CDE868 /* Controller */,
 			);
 			path = Detail;
@@ -251,6 +264,43 @@
 			children = (
 				185F92262492652A00A53064 /* HMNavigationController.h */,
 				185F92272492652A00A53064 /* HMNavigationController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		186BB2231B70614500D27CF3 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				186BB2241B70615200D27CF3 /* HMDealTool.h */,
+				186BB2251B70615200D27CF3 /* HMDealTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		186BB22E1B71BAD300D27CF3 /* AwesomeMenu */ = {
+			isa = PBXGroup;
+			children = (
+				186BB22F1B71BAD300D27CF3 /* AwesomeMenu.h */,
+				186BB2301B71BAD300D27CF3 /* AwesomeMenu.m */,
+				186BB2311B71BAD300D27CF3 /* AwesomeMenuItem.h */,
+				186BB2321B71BAD300D27CF3 /* AwesomeMenuItem.m */,
+			);
+			path = AwesomeMenu;
+			sourceTree = "<group>";
+		};
+		186BB23A1B7200F000D27CF3 /* Collect */ = {
+			isa = PBXGroup;
+			children = (
+				186BB23B1B7200F000D27CF3 /* Controller */,
+			);
+			path = Collect;
+			sourceTree = "<group>";
+		};
+		186BB23B1B7200F000D27CF3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				186BB23C1B72010700D27CF3 /* HMCollectViewController.h */,
+				186BB23D1B72010700D27CF3 /* HMCollectViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -316,6 +366,7 @@
 		18A059761B1EE6C700E17CCE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				186BB23A1B7200F000D27CF3 /* Collect */,
 				1846C2421B633E5700CDE868 /* Detail */,
 				18A059771B1EE6C700E17CCE /* Home */,
 				18A0597D1B1EE6C700E17CCE /* Other */,
@@ -413,6 +464,7 @@
 		18A059811B1EE6C700E17CCE /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				186BB22E1B71BAD300D27CF3 /* AwesomeMenu */,
 				18A0598F248DCD3C00E17CCE /* DP */,
 				185F920E248FD6E100A53064 /* HMPerson.h */,
 				185F920F248FD6E100A53064 /* HMPerson.m */,
@@ -617,6 +669,8 @@
 				18A0599B248E75F200E17CCE /* DPConstants.m in Sources */,
 				189C0F822490BF64004D1F61 /* HMDropDownRightCell.m in Sources */,
 				189C0F972493CAAF004D1F61 /* HMCityViewController.m in Sources */,
+				186BB2331B71BAD300D27CF3 /* AwesomeMenu.m in Sources */,
+				186BB2341B71BAD300D27CF3 /* AwesomeMenuItem.m in Sources */,
 				18EA2F5E1B3067DF00EF27E0 /* HMCity.m in Sources */,
 				182D3758249464A60086DD00 /* HMHomeTopItem.m in Sources */,
 				182D3766249657330086DD00 /* HMSortViewController.m in Sources */,
@@ -633,8 +687,10 @@
 				1850E4B31B679E5C0021E25E /* HMGetSingleDealResult.m in Sources */,
 				182D37692496575A0086DD00 /* HMCategoryViewController.m in Sources */,
 				1846C2471B633E7600CDE868 /* HMDetailViewController.m in Sources */,
+				186BB2261B70615200D27CF3 /* HMDealTool.m in Sources */,
 				18C3F0C21B3938BE007808E1 /* NSString+Extension.m in Sources */,
 				18A059841B1EE6C700E17CCE /* AppDelegate.m in Sources */,
+				186BB23E1B72010700D27CF3 /* HMCollectViewController.m in Sources */,
 				189C0F76248F93D8004D1F61 /* HMCategory.m in Sources */,
 				18A059851B1EE6C700E17CCE /* main.m in Sources */,
 				18EA2F581B30194600EF27E0 /* HMCityResultViewController.m in Sources */,

@@ -10,7 +10,7 @@
 
 @class HMRestriction;
 
-@interface HMDeal : NSObject
+@interface HMDeal : NSObject <NSCoding>
 /** 团购单ID */
 @property (nonatomic,copy) NSString *deal_id;
 /** 团购标题 */
