@@ -3,7 +3,7 @@
 //  美团HD
 //
 //  Created by apple on 15/7/25.
-//  Copyright (c) 2015年 itheima. All rights reserved.
+//  Copyright (c) 2015年 chenMH. All rights reserved.
 //
 
 #import "HMDetailViewController.h"
@@ -41,6 +41,9 @@
     
     // 处理左边的内容
     [self setupLeftView];
+    
+    // 添加这个团购到最近访问记录中
+    [HMDealTool addHistoryDeal:self.deal];
 }
 
 /**

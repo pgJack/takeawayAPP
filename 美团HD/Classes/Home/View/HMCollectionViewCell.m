@@ -3,7 +3,7 @@
 //  美团HD
 //
 //  Created by apple on 15/6/19.
-//  Copyright (c) 2015年 itheima. All rights reserved.
+//  Copyright (c) 2015年 chenMH. All rights reserved.
 //
 
 #import "HMCollectionViewCell.h"
@@ -20,6 +20,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *purchaseCountLabel;
 /** 如果方法以new,alloc,init开头,那么这些方法必须返回跟方法调用者同一类型的对象 */
 @property (weak, nonatomic) IBOutlet UIImageView *dealNewMark;
+/** 编辑时的遮盖 */
+@property (weak, nonatomic) IBOutlet UIButton *cover;
+/** 选中时的标记 */
+@property (weak, nonatomic) IBOutlet UIImageView *checkMark;
 
 
 @end
@@ -71,6 +75,12 @@
     NSComparisonResult result = [now compare:deal.publish_date];
     self.dealNewMark.hidden = (result == NSOrderedDescending);
     
+    // 根据模型的editing属性来确定是否要进入编辑模式
+    self.cover.hidden = !self.deal.isEditing;
+    
+    // 根据模型中的checked属性来确定是否要显示打勾图片
+    self.checkMark.hidden = !self.deal.isChecked;
+    
 //    self.dealNewMark.hidden = (result == NSOrderedDescending) ? YES : NO;
 //    if (result == NSOrderedSame || result == NSOrderedAscending) { // 新单
 //        self.dealNewMark.hidden = NO;
@@ -83,6 +93,17 @@
      NSOrderedSame,            相同 (左边 == 右边)
      NSOrderedDescending       降序 (左边 > 右边)
      */
+}
+/**
+ *  遮盖点击事件
+ */
+- (IBAction)coverClick {
+    // 让打勾控件马上有反应
+    self.checkMark.hidden = !self.checkMark.hidden;
+    // 永久修改模型状态
+    self.deal.checked = !self.deal.isChecked;
+    // 发送通知
+    [HMNoteCenter postNotificationName:HMItemCoverDidClickNotification object:nil];
 }
 
 @end

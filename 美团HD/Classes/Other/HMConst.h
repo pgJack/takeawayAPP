@@ -25,6 +25,9 @@ UIKIT_EXTERN NSString * const HMCurrentDistrictKey;
 /** 通过这个key可以取出当前子区域的索引 */
 UIKIT_EXTERN NSString * const HMCurrentSubdistrictIndexKey;
 
+/** item遮盖点击的通知 */
+UIKIT_EXTERN NSString * const HMItemCoverDidClickNotification;
+
 // 数值
 UIKIT_EXTERN CGFloat HMScreenMaxWH;
 UIKIT_EXTERN CGFloat HMScreenMinWH;

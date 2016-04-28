@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,7 +13,7 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="305" height="305"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_deal" translatesAutoresizingMaskIntoConstraints="NO" id="DIX-ql-FiH" userLabel="图片">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_deal" translatesAutoresizingMaskIntoConstraints="NO" id="DIX-ql-FiH" userLabel="图片">
                         <rect key="frame" x="5" y="5" width="295" height="185"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="185" id="rTu-ze-DwI"/>
@@ -90,21 +91,44 @@
                             <constraint firstAttribute="width" constant="38" id="peD-Ys-Rlz"/>
                         </constraints>
                     </imageView>
+                    <button hidden="YES" opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdl-2m-RuG" userLabel="编辑时的遮盖">
+                        <rect key="frame" x="0.0" y="0.0" width="305" height="305"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="coverClick" destination="gTV-IL-0wX" eventType="touchUpInside" id="PCB-DL-RaE"/>
+                        </connections>
+                    </button>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="iHV-h2-LRx" userLabel="选中时的标记">
+                        <rect key="frame" x="273" y="273" width="32" height="32"/>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="iHV-h2-LRx" secondAttribute="bottom" id="0rh-B9-KxH"/>
+                <constraint firstAttribute="trailing" secondItem="iHV-h2-LRx" secondAttribute="trailing" id="46r-xr-Gcg"/>
+                <constraint firstItem="iHV-h2-LRx" firstAttribute="top" secondItem="DIX-ql-FiH" secondAttribute="bottom" constant="83" id="9HT-GK-Y4b"/>
+                <constraint firstItem="bdl-2m-RuG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Dxo-IC-5hk"/>
                 <constraint firstItem="xh2-OL-r0x" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="JkO-jO-34W"/>
                 <constraint firstAttribute="trailing" secondItem="18o-Xq-wRd" secondAttribute="trailing" constant="10" id="K9v-QF-Sxb"/>
                 <constraint firstAttribute="trailing" secondItem="DIX-ql-FiH" secondAttribute="trailing" constant="5" id="LNw-Pm-g3i"/>
                 <constraint firstAttribute="bottom" secondItem="18o-Xq-wRd" secondAttribute="bottom" constant="10" id="M6s-cA-7xa"/>
                 <constraint firstItem="DIX-ql-FiH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="SFl-Lt-58x"/>
                 <constraint firstItem="xh2-OL-r0x" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="TGq-hd-F8T"/>
+                <constraint firstAttribute="trailing" secondItem="bdl-2m-RuG" secondAttribute="trailing" id="VZp-rx-0co"/>
+                <constraint firstAttribute="bottom" secondItem="bdl-2m-RuG" secondAttribute="bottom" id="aOH-xN-pcZ"/>
                 <constraint firstItem="18o-Xq-wRd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="bje-Hy-1cr"/>
+                <constraint firstItem="bdl-2m-RuG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="duJ-aK-Bio"/>
                 <constraint firstItem="18o-Xq-wRd" firstAttribute="top" secondItem="DIX-ql-FiH" secondAttribute="bottom" constant="10" id="mmx-5h-0OP"/>
                 <constraint firstItem="DIX-ql-FiH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="wKT-VC-WLc"/>
+                <constraint firstItem="iHV-h2-LRx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="273" id="xBK-vD-2o7"/>
             </constraints>
             <connections>
+                <outlet property="checkMark" destination="iHV-h2-LRx" id="kRX-b0-4TW"/>
+                <outlet property="cover" destination="bdl-2m-RuG" id="4E6-00-ZVa"/>
                 <outlet property="currentPriceLabel" destination="s5n-qv-E4K" id="OCc-D2-vLh"/>
                 <outlet property="dealNewMark" destination="xh2-OL-r0x" id="r56-j2-Tec"/>
                 <outlet property="descLabel" destination="kWA-Kr-2Gc" id="WeX-Zc-VfU"/>
@@ -117,6 +141,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="check" width="16" height="16"/>
         <image name="ic_deal_new" width="38" height="24"/>
         <image name="placeholder_deal" width="273" height="172"/>
     </resources>

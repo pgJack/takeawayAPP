@@ -56,6 +56,8 @@
 		18C3F0B91B341CED007808E1 /* HMDeal.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C3F0B81B341CED007808E1 /* HMDeal.m */; };
 		18C3F0BC1B341E2B007808E1 /* HMFineDealResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C3F0BB1B341E2B007808E1 /* HMFineDealResult.m */; };
 		18C3F0C21B3938BE007808E1 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C3F0C11B3938BE007808E1 /* NSString+Extension.m */; };
+		18E67A901B76188F00B6F2BC /* HMHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E67A8F1B76188F00B6F2BC /* HMHistoryViewController.m */; };
+		18E67A9D1B7846A500B6F2BC /* HMSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E67A9C1B7846A500B6F2BC /* HMSearchViewController.m */; };
 		18EA2F581B30194600EF27E0 /* HMCityResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EA2F571B30194600EF27E0 /* HMCityResultViewController.m */; };
 		18EA2F5E1B3067DF00EF27E0 /* HMCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EA2F5D1B3067DF00EF27E0 /* HMCity.m */; };
 		18EA2F64248E08F800EF27E0 /* HMDistrict.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EA2F63248E08F800EF27E0 /* HMDistrict.m */; };
@@ -161,6 +163,10 @@
 		18C3F0BB1B341E2B007808E1 /* HMFineDealResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMFineDealResult.m; sourceTree = "<group>"; };
 		18C3F0C01B3938BE007808E1 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		18C3F0C11B3938BE007808E1 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		18E67A8E1B76188F00B6F2BC /* HMHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMHistoryViewController.h; sourceTree = "<group>"; };
+		18E67A8F1B76188F00B6F2BC /* HMHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMHistoryViewController.m; sourceTree = "<group>"; };
+		18E67A9B1B7846A500B6F2BC /* HMSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSearchViewController.h; sourceTree = "<group>"; };
+		18E67A9C1B7846A500B6F2BC /* HMSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSearchViewController.m; sourceTree = "<group>"; };
 		18EA2F561B30194600EF27E0 /* HMCityResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMCityResultViewController.h; sourceTree = "<group>"; };
 		18EA2F571B30194600EF27E0 /* HMCityResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMCityResultViewController.m; sourceTree = "<group>"; };
 		18EA2F5C1B3067DF00EF27E0 /* HMCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMCity.h; sourceTree = "<group>"; };
@@ -366,6 +372,8 @@
 		18A059761B1EE6C700E17CCE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				18E67A991B78469000B6F2BC /* Search */,
+				18E67A8C1B76187A00B6F2BC /* History */,
 				186BB23A1B7200F000D27CF3 /* Collect */,
 				1846C2421B633E5700CDE868 /* Detail */,
 				18A059771B1EE6C700E17CCE /* Home */,
@@ -491,6 +499,40 @@
 				18A05995248DCD4900E17CCE /* DPRequest.m */,
 			);
 			path = dianpingapi;
+			sourceTree = "<group>";
+		};
+		18E67A8C1B76187A00B6F2BC /* History */ = {
+			isa = PBXGroup;
+			children = (
+				18E67A8D1B76187A00B6F2BC /* Controller */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		18E67A8D1B76187A00B6F2BC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18E67A8E1B76188F00B6F2BC /* HMHistoryViewController.h */,
+				18E67A8F1B76188F00B6F2BC /* HMHistoryViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18E67A991B78469000B6F2BC /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				18E67A9A1B78469000B6F2BC /* Controller */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		18E67A9A1B78469000B6F2BC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18E67A9B1B7846A500B6F2BC /* HMSearchViewController.h */,
+				18E67A9C1B7846A500B6F2BC /* HMSearchViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		96003757DACEFBB84489A483 /* Frameworks */ = {
@@ -676,6 +718,7 @@
 				182D3766249657330086DD00 /* HMSortViewController.m in Sources */,
 				18C3F0B01B340C14007808E1 /* HMCenterLineLabel.m in Sources */,
 				18A05996248DCD4900E17CCE /* DPAPI.m in Sources */,
+				18E67A9D1B7846A500B6F2BC /* HMSearchViewController.m in Sources */,
 				185F92282492652A00A53064 /* HMNavigationController.m in Sources */,
 				1886978D2494B80000E5B9CC /* HMCityGroup.m in Sources */,
 				182D3750249446740086DD00 /* UIBarButtonItem+Extension.m in Sources */,
@@ -691,6 +734,7 @@
 				18C3F0C21B3938BE007808E1 /* NSString+Extension.m in Sources */,
 				18A059841B1EE6C700E17CCE /* AppDelegate.m in Sources */,
 				186BB23E1B72010700D27CF3 /* HMCollectViewController.m in Sources */,
+				18E67A901B76188F00B6F2BC /* HMHistoryViewController.m in Sources */,
 				189C0F76248F93D8004D1F61 /* HMCategory.m in Sources */,
 				18A059851B1EE6C700E17CCE /* main.m in Sources */,
 				18EA2F581B30194600EF27E0 /* HMCityResultViewController.m in Sources */,

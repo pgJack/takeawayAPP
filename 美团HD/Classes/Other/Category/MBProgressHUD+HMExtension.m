@@ -3,7 +3,7 @@
 //  美团HD
 //
 //  Created by apple on 15/7/24.
-//  Copyright (c) 2015年 itheima. All rights reserved.
+//  Copyright (c) 2015年 chenMH. All rights reserved.
 //
 
 #import "MBProgressHUD+HMExtension.h"
@@ -69,6 +69,7 @@
 
 + (void)hideHUDForView:(UIView *)view
 {
+    if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
     [self hideHUDForView:view animated:YES];
 }
 

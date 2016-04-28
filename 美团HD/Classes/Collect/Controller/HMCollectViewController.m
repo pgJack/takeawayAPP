@@ -3,7 +3,7 @@
 //  美团HD
 //
 //  Created by apple on 15/8/5.
-//  Copyright (c) 2015年 itheima. All rights reserved.
+//  Copyright (c) 2015年 chenMH. All rights reserved.
 //
 
 #import "HMCollectViewController.h"
@@ -93,6 +93,7 @@ static NSString * const reuseIdentifier = @"deal";
 {
     if (_deleteItem == nil) {
         _deleteItem = [[UIBarButtonItem alloc] initWithTitle:HMNavLeftText(@"删除") style:UIBarButtonItemStylePlain target:self action:@selector(deleteItemClick)];
+        self.deleteItem.enabled = NO;
     }
     return _deleteItem;
 }
@@ -114,6 +115,12 @@ static NSString * const reuseIdentifier = @"deal";
     UIBarButtonItem *editItem = self.navigationItem.rightBarButtonItem;
     editItem.enabled = (self.deals.count > 0);
     
+    // 清空模型的状态
+    for (HMDeal *deal in self.deals) {
+        deal.editing = NO;
+        deal.checked = NO;
+    }
+    
     // 根据当前屏幕尺寸,计算布局参数 (比如说间距)
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     [self viewWillTransitionToSize:screenSize withTransitionCoordinator:nil];
@@ -130,7 +137,30 @@ static NSString * const reuseIdentifier = @"deal";
     
     // 设置导航栏内容
     [self setupNav];
+    
+    // 监听通知
+    [HMNoteCenter addObserver:self selector:@selector(coverClick) name:HMItemCoverDidClickNotification object:nil];
 }
+
+- (void)dealloc
+{
+    [HMNoteCenter removeObserver:self];
+}
+
+#pragma mark - 通知处理
+
+- (void)coverClick
+{
+    NSUInteger count = [self.deals filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"checked == YES"]].count;
+    if (count) {
+        self.deleteItem.title = [NSString stringWithFormat:@"删除(%zd)",count];
+        self.deleteItem.enabled = YES;
+    } else {
+        self.deleteItem.title = HMNavLeftText(@"删除");
+        self.deleteItem.enabled = NO;
+    }
+}
+
 
 /**
  *  设置导航栏内容
@@ -154,11 +184,26 @@ static NSString * const reuseIdentifier = @"deal";
         // 控制左边的 (全选 全不选 删除) 出现
         self.navigationItem.leftBarButtonItems = @[self.backItem, self.selectAllItem, self.deselectAllItem, self.deleteItem];
         
+        // 让所有item上面的蒙版都出现
+        for (HMDeal *deal in self.deals) {
+            deal.editing = YES;
+        }
+        // 刷新数据
+        [self.collectionView reloadData];
+        
     } else { // 结束编辑状态
         self.navigationItem.rightBarButtonItem.title = HMEdit;
         
         // 控制左边的 (全选 全不选 删除) 消失
         self.navigationItem.leftBarButtonItems = @[self.backItem];
+        
+        // 让所有item上面的蒙版都出现
+        for (HMDeal *deal in self.deals) {
+            deal.editing = NO;
+            deal.checked = NO;
+        }
+        // 刷新数据
+        [self.collectionView reloadData];
     }
 }
 
@@ -169,17 +214,39 @@ static NSString * const reuseIdentifier = @"deal";
 
 - (void)selectAllItemClick
 {
+    for (HMDeal *deal in self.deals) {
+        deal.checked = YES;
+    }
+    // 刷新数据
+    [self.collectionView reloadData];
     
+    // 刷新删除按钮的状态
+    [self coverClick];
 }
 
 - (void)deselectAllItemClick
 {
+    for (HMDeal *deal in self.deals) {
+        deal.checked = NO;
+    }
+    // 刷新数据
+    [self.collectionView reloadData];
     
+    // 刷新删除按钮的状态
+    [self coverClick];
 }
 
 - (void)deleteItemClick
 {
-    
+    NSArray *deletedDeals = [self.deals filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"checked == YES"]];
+    // 取消收藏
+    [HMDealTool uncollectDeals:deletedDeals];
+    // 删除数据
+    [self.deals removeObjectsInArray:deletedDeals];
+    // 刷新数据
+    [self.collectionView reloadData];
+    // 刷新删除按钮状态
+    [self coverClick];
 }
 
 #pragma mark - 监听屏幕的旋转

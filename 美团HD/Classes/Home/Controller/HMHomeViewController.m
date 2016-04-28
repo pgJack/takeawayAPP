@@ -3,7 +3,7 @@
 //  美团HD
 //
 //  Created by apple on 20/6/10.
-//  Copyright (c) 2020年 itheima. All rights reserved.
+//  Copyright (c) 2020年 chenMH. All rights reserved.
 //
 
 #import "HMHomeViewController.h"
@@ -28,6 +28,8 @@
 #import "AwesomeMenu.h"
 #import "HMCollectViewController.h"
 #import "HMNavigationController.h"
+#import "HMHistoryViewController.h"
+#import "HMSearchViewController.h"
 
 @interface HMHomeViewController () <AwesomeMenuDelegate>
 /** 分类item */
@@ -305,9 +307,12 @@ static NSString * const reuseIdentifier = @"deal";
             [self presentViewController:nav animated:YES completion:nil];
             break;
         }
-        case 2: // 历史
-            HMLog(@"历史");
+        case 2: { // 历史
+            HMHistoryViewController *historyVc = [[HMHistoryViewController alloc] initWithCollectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
+            HMNavigationController *nav = [[HMNavigationController alloc] initWithRootViewController:historyVc];
+            [self presentViewController:nav animated:YES completion:nil];
             break;
+        }
         case 3: // 更多
             HMLog(@"更多");
             break;
@@ -464,7 +469,14 @@ static NSString * const reuseIdentifier = @"deal";
  */
 - (void)searchClick
 {
-    HMLog(@"searchClick");
+    if (self.currentCity == nil) {
+        [MBProgressHUD showError:@"请选择城市之后再进行搜索"];
+        return;
+    }
+    HMSearchViewController *searchVc = [[HMSearchViewController alloc] initWithCollectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
+    searchVc.cityName = self.currentCity.name;
+    HMNavigationController *nav = [[HMNavigationController alloc] initWithRootViewController:searchVc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 /**
@@ -606,3 +618,6 @@ static NSString * const reuseIdentifier = @"deal";
 }
 
 @end
+
+
+

@@ -3,7 +3,7 @@
 //  美团HD
 //
 //  Created by apple on 15/6/19.
-//  Copyright (c) 2015年 itheima. All rights reserved.
+//  Copyright (c) 2015年 chenMH. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -37,5 +37,11 @@
 @property (nonatomic,copy) NSString *deal_h5_url;
 /** 是否支持随时退款，0：不是，1：是 */
 @property (nonatomic, assign) BOOL is_refundable;
+
+/** 记录当前团购的编辑状态 */
+@property (nonatomic, assign, getter=isEditing) BOOL editing;
+/** 是否被勾选 */
+@property (nonatomic, assign, getter=isChecked) BOOL checked;
+
 
 @end
