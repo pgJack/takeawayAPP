@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class HMCity;
 
 @interface HMDataTool : NSObject
 /**
@@ -33,5 +34,14 @@
  *  返回所有的城市 (里面都是HMCity模型)
  */
 + (NSArray *)cities;
+
+/**
+ *  根据城市名字返回城市模型
+ *
+ *  @param name 城市名字
+ *
+ *  @return 城市模型
+ */
++ (HMCity *)cityWithName:(NSString *)name;
 
 @end

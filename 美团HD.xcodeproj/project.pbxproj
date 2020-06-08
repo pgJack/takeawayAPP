@@ -43,6 +43,7 @@
 		18A0599B248E75F200E17CCE /* DPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A0599A248E75F200E17CCE /* DPConstants.m */; };
 		18EA2F581B30194600EF27E0 /* HMCityResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EA2F571B30194600EF27E0 /* HMCityResultViewController.m */; };
 		18EA2F5E1B3067DF00EF27E0 /* HMCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EA2F5D1B3067DF00EF27E0 /* HMCity.m */; };
+		18EA2F64248E08F800EF27E0 /* HMDistrict.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EA2F63248E08F800EF27E0 /* HMDistrict.m */; };
 		45E2BC7028384189C09C8950 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FE9288A761ED9AD31F898FF /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +123,8 @@
 		18EA2F571B30194600EF27E0 /* HMCityResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMCityResultViewController.m; sourceTree = "<group>"; };
 		18EA2F5C1B3067DF00EF27E0 /* HMCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMCity.h; sourceTree = "<group>"; };
 		18EA2F5D1B3067DF00EF27E0 /* HMCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMCity.m; sourceTree = "<group>"; };
+		18EA2F62248E08F800EF27E0 /* HMDistrict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMDistrict.h; sourceTree = "<group>"; };
+		18EA2F63248E08F800EF27E0 /* HMDistrict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMDistrict.m; sourceTree = "<group>"; };
 		2FE9288A761ED9AD31F898FF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1C999732671982AD860D30 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E5C0168D8A7083F66FE6D45D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -293,6 +296,8 @@
 				1886978C2494B80000E5B9CC /* HMCityGroup.m */,
 				18EA2F5C1B3067DF00EF27E0 /* HMCity.h */,
 				18EA2F5D1B3067DF00EF27E0 /* HMCity.m */,
+				18EA2F62248E08F800EF27E0 /* HMDistrict.h */,
+				18EA2F63248E08F800EF27E0 /* HMDistrict.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -538,6 +543,7 @@
 				185F9210248FD6E100A53064 /* HMPerson.m in Sources */,
 				182D3784249671860086DD00 /* HMSort.m in Sources */,
 				182D378C249671860086DD00 /* HMDataTool.m in Sources */,
+				18EA2F64248E08F800EF27E0 /* HMDistrict.m in Sources */,
 				18A0599B248E75F200E17CCE /* DPConstants.m in Sources */,
 				189C0F822490BF64004D1F61 /* HMDropDownRightCell.m in Sources */,
 				189C0F972493CAAF004D1F61 /* HMCityViewController.m in Sources */,

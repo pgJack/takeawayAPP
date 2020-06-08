@@ -7,7 +7,14 @@
 //
 
 #import "HMCity.h"
+#import "HMDistrict.h"
+#import <MJExtension.h>
 
 @implementation HMCity
+
++ (NSDictionary *)objectClassInArray
+{
+    return @{@"districts" : [HMDistrict class]};
+}
 
 @end

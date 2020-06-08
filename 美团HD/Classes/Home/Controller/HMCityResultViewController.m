@@ -71,5 +71,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // 销毁当前控制器
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    // 城市模型
+    HMCity *city = self.resultCities[indexPath.row];
+    
+    // 发送通知
+    NSDictionary *userInfo = @{HMCurrentCityKey : city};
+    [HMNoteCenter postNotificationName:HMCityDidChangeNotification object:nil userInfo:userInfo];
 }
 @end

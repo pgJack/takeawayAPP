@@ -14,6 +14,7 @@
 #import "HMSortViewController.h"
 #import "HMSort.h"
 #import "HMCategory.h"
+#import "HMCity.h"
 
 @interface HMHomeViewController ()
 /** 分类item */
@@ -22,6 +23,10 @@
 @property(nonatomic, weak) UIBarButtonItem *districtItem;
 /** 排序item */
 @property(nonatomic, weak) UIBarButtonItem *sortItem;
+
+// 记录一些当前数据
+/** 当前城市 */
+@property (nonatomic, strong) HMCity *currentCity;
 @end
 
 @implementation HMHomeViewController
@@ -54,6 +59,7 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     [HMNoteCenter addObserver:self selector:@selector(sortDidChange:) name:HMSortDidChangeNotification object:nil];
     [HMNoteCenter addObserver:self selector:@selector(categoryDidChange:) name:HMCategoryDidChangeNotification object:nil];
+    [HMNoteCenter addObserver:self selector:@selector(cityDidChange:) name:HMCityDidChangeNotification object:nil];
 }
 
 - (void)dealloc
@@ -142,6 +148,19 @@ static NSString * const reuseIdentifier = @"Cell";
 #warning TODO 重新发送请求给服务器
 }
 
+- (void)cityDidChange:(NSNotification *)note
+{
+    // 更新导航栏顶部类别菜单的内容
+    HMHomeTopItem *topItem = (HMHomeTopItem *)self.districtItem.customView;
+    // 取出模型
+    self.currentCity = note.userInfo[HMCurrentCityKey];
+    topItem.title = self.currentCity.name;
+    topItem.subtitle = @"全部";
+    
+    
+#warning TODO 重新发送请求给服务器
+}
+
 #pragma mark - 导航栏事件处理
 /**
  *  点击了分类
@@ -161,6 +180,7 @@ static NSString * const reuseIdentifier = @"Cell";
     HMDistrictViewController *districtVc = [[HMDistrictViewController alloc] init];
     districtVc.modalPresentationStyle = UIModalPresentationPopover;
     districtVc.popoverPresentationController.barButtonItem = self.districtItem;
+    districtVc.districts = self.currentCity.districts;
     [self presentViewController:districtVc animated:YES completion:nil];
 }
 /**

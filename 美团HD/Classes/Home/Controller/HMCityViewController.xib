@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HMCityViewController">
             <connections>
+                <outlet property="cover" destination="av4-ZE-qFd" id="qtM-Fa-CpY"/>
                 <outlet property="searchBar" destination="gD5-9H-xcK" id="CAn-26-wfP"/>
                 <outlet property="tableView" destination="raN-av-meF" id="d5Z-nD-8lN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -35,15 +36,26 @@
                         <outlet property="delegate" destination="-1" id="XNT-Hk-ohq"/>
                     </connections>
                 </tableView>
+                <button hidden="YES" opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="av4-ZE-qFd" userLabel="蒙版遮盖">
+                    <rect key="frame" x="0.0" y="69" width="600" height="531"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="av4-ZE-qFd" firstAttribute="top" secondItem="gD5-9H-xcK" secondAttribute="bottom" constant="10" id="2K5-G0-QqC"/>
+                <constraint firstItem="av4-ZE-qFd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3aQ-Va-jJv"/>
                 <constraint firstItem="raN-av-meF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5uI-ZB-fUD"/>
+                <constraint firstAttribute="bottom" secondItem="av4-ZE-qFd" secondAttribute="bottom" id="9VS-f2-lbl"/>
                 <constraint firstAttribute="trailing" secondItem="gD5-9H-xcK" secondAttribute="trailing" constant="15" id="E5f-2l-1nB"/>
                 <constraint firstItem="gD5-9H-xcK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="Hih-IN-zT2"/>
                 <constraint firstAttribute="trailing" secondItem="raN-av-meF" secondAttribute="trailing" id="LCn-hR-rqk"/>
                 <constraint firstItem="raN-av-meF" firstAttribute="top" secondItem="gD5-9H-xcK" secondAttribute="bottom" constant="10" id="YfM-Nf-ZnF"/>
                 <constraint firstAttribute="bottom" secondItem="raN-av-meF" secondAttribute="bottom" id="bnR-zK-cTb"/>
+                <constraint firstAttribute="trailing" secondItem="av4-ZE-qFd" secondAttribute="trailing" id="cIV-uI-hIi"/>
                 <constraint firstItem="gD5-9H-xcK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="f79-q4-aW3"/>
             </constraints>
         </view>

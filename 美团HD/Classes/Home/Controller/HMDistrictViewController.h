@@ -10,4 +10,6 @@
 
 @interface HMDistrictViewController : UIViewController
 
+/** 这个控制器显示的所有区域数据 (里面都是区域模型) */
+@property (nonatomic, strong) NSArray *districts;
 @end

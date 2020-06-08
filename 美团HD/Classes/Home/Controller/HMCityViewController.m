@@ -16,7 +16,7 @@
 @interface HMCityViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 /** 蒙版遮盖 */
-@property(nonatomic, weak) UIButton *cover;
+@property(nonatomic, weak) IBOutlet UIButton *cover;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 /** 城市搜索结果控制器 */
 @property (nonatomic, strong) HMCityResultViewController *cityResultVc;
@@ -39,34 +39,6 @@
     return _cityResultVc;
 }
 
-- (UIButton *)cover
-{
-    if (_cover == nil) {
-        UIButton *cover = [[UIButton alloc] init];
-        cover.backgroundColor = [UIColor lightGrayColor];
-        cover.alpha = 0.8;
-//        [cover addTarget:self.view action:@selector(endEditing:) forControlEvents:UIControlEventTouchUpInside];
-//        [cover addTarget:self action:@selector(coverClick) forControlEvents:UIControlEventTouchUpInside];
-        [cover addTarget:self.searchBar action:@selector(resignFirstResponder) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:cover];
-        
-        // 添加约束
-        [cover autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
-        [cover autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.tableView];
-//        [cover autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.tableView];
-//        [cover autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.tableView];
-//        [cover autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.tableView];
-        
-        self.cover = cover;
-    }
-    return _cover;
-}
-
-//- (void)coverClick
-//{
-//    [self.view endEditing:YES];
-//}
-
 
 #pragma mark - 初始化方法
 - (void)viewDidLoad {
@@ -78,8 +50,8 @@
     // 设置表格的索引文字颜色
     self.tableView.sectionIndexColor = [UIColor blackColor];
     
-//    self.tabBarItem.title = ;
-//    self.navigationItem.title = ;
+    // 监听蒙版的点击
+    [self.cover addTarget:self.searchBar action:@selector(resignFirstResponder) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)close
@@ -122,6 +94,12 @@
     
     // 4. 隐藏蒙版
     self.cover.hidden = YES;
+    
+    // 5. 清空搜索框文字
+    searchBar.text = nil;
+    
+    // 6. 隐藏搜索结果控制器
+    self.cityResultVc.view.hidden = YES;
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
@@ -201,6 +179,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // 销毁当前控制器
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    // 取出城市的名字
+    HMCityGroup *cityGroup = [HMDataTool cityGroups][indexPath.section];
+    NSString *cityName = cityGroup.cities[indexPath.row];
+    
+    // 根据城市的名字获得城市模型
+    HMCity *city = [HMDataTool cityWithName:cityName];
+    
+    // 发送通知
+    NSDictionary *userInfo = @{HMCurrentCityKey : city};
+    [HMNoteCenter postNotificationName:HMCityDidChangeNotification object:nil userInfo:userInfo];
+    
+    
 }
 
 @end
