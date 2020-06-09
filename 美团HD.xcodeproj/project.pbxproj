@@ -23,6 +23,7 @@
 		185F9210248FD6E100A53064 /* HMPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F920F248FD6E100A53064 /* HMPerson.m */; };
 		185F9220249059DE00A53064 /* HMHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F921F249059DE00A53064 /* HMHomeViewController.m */; };
 		185F92282492652A00A53064 /* HMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F92272492652A00A53064 /* HMNavigationController.m */; };
+		189C0F70248F4548004D1F61 /* HMCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189C0F6F248F4548004D1F61 /* HMCategoryViewController.xib */; };
 		18A059591B1EDC2000E17CCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A059571B1EDC2000E17CCE /* Main.storyboard */; };
 		18A0595B1B1EDC2000E17CCE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18A0595A1B1EDC2000E17CCE /* Images.xcassets */; };
 		18A0595E1B1EDC2000E17CCE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A0595C1B1EDC2000E17CCE /* LaunchScreen.xib */; };
@@ -75,6 +76,7 @@
 		185F921F249059DE00A53064 /* HMHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMHomeViewController.m; sourceTree = "<group>"; };
 		185F92262492652A00A53064 /* HMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMNavigationController.h; sourceTree = "<group>"; };
 		185F92272492652A00A53064 /* HMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMNavigationController.m; sourceTree = "<group>"; };
+		189C0F6F248F4548004D1F61 /* HMCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HMCategoryViewController.xib; sourceTree = "<group>"; };
 		18A0594A1B1EDC2000E17CCE /* 美团HD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "美团HD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A0594E1B1EDC2000E17CCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18A059581B1EDC2000E17CCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				182D3765249657330086DD00 /* HMSortViewController.m */,
 				182D37672496575A0086DD00 /* HMCategoryViewController.h */,
 				182D37682496575A0086DD00 /* HMCategoryViewController.m */,
+				189C0F6F248F4548004D1F61 /* HMCategoryViewController.xib */,
 				182D376A2496576B0086DD00 /* HMDistrictViewController.h */,
 				182D376B2496576B0086DD00 /* HMDistrictViewController.m */,
 			);
@@ -424,6 +427,7 @@
 			files = (
 				182D377E249671860086DD00 /* sorts.plist in Resources */,
 				18A059591B1EDC2000E17CCE /* Main.storyboard in Resources */,
+				189C0F70248F4548004D1F61 /* HMCategoryViewController.xib in Resources */,
 				18A0595E1B1EDC2000E17CCE /* LaunchScreen.xib in Resources */,
 				182D377D249671860086DD00 /* cityGroups.plist in Resources */,
 				182D375A249464BC0086DD00 /* HMHomeTopItem.xib in Resources */,
