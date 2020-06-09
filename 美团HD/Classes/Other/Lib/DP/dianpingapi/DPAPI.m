@@ -9,34 +9,26 @@
 #import "DPAPI.h"
 #import "DPConstants.h"
 
+typedef void (^DPBlock)(id result, NSError *error);
+
 @interface DPAPI () <DPRequestDelegate>
 {
     NSMutableSet *_requests;
 }
-/** 存放所有的success block */
-@property (nonatomic, strong) NSMutableDictionary *successes;
-/** 存放所有的failures block */
-@property (nonatomic, strong) NSMutableDictionary *failures;
+/** 存放所有请求的 block */
+@property (nonatomic, strong) NSMutableDictionary *blocks;
 
 @end
 
 
 @implementation DPAPI
 #pragma mark - 懒加载
-- (NSMutableDictionary *)successes
+- (NSMutableDictionary *)blocks
 {
-    if (_successes == nil) {
-        _successes = [[NSMutableDictionary alloc] init];
+    if (_blocks == nil) {
+        _blocks = [[NSMutableDictionary alloc] init];
     }
-    return _successes;
-}
-
-- (NSMutableDictionary *)failures
-{
-    if (_failures == nil) {
-        _failures = [[NSMutableDictionary alloc] init];
-    }
-    return _failures;
+    return _blocks;
 }
 
 #pragma mark - 后来自己添加的代码
@@ -48,8 +40,13 @@
     
     // 存储这次请求对应的 block
     NSString *key = request.description;
-    self.successes[key] = success;
-    self.failures[key] = failure;
+    self.blocks[key] = ^(id result, NSError *error) {
+        if (result && success) {
+            success(result);
+        } else if (error && failure) {
+            failure(error);
+        }
+    };
     
     // 返回请求对象
     return request;
@@ -66,10 +63,16 @@ HMSingleton_M
  */
 - (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result
 {
-    DPSuccess success = self.successes[request.description];
-    if (success) {
-        success(result);
-    }
+    DPBlock block = self.blocks[request.description];
+    block(result, nil);
+    
+//    ^(id result, NSError *error) {
+//        if (result && success) {
+//            success(result);
+//        } else if (error && failure) {
+//            failure(error);
+//        }
+//    }(result, nil);
 }
 
 /**
@@ -80,10 +83,8 @@ HMSingleton_M
  */
 - (void)request:(DPRequest *)request didFailWithError:(NSError *)error
 {
-    DPFailure failure = self.failures[request.description];
-    if (failure) {
-        failure(error);
-    }
+    DPBlock block = self.blocks[request.description];
+    block(nil, error);
 }
 
 
