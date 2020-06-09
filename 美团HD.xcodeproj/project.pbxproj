@@ -11,6 +11,15 @@
 		182D3750249446740086DD00 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D374F249446740086DD00 /* UIBarButtonItem+Extension.m */; };
 		182D3758249464A60086DD00 /* HMHomeTopItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D3757249464A60086DD00 /* HMHomeTopItem.m */; };
 		182D375A249464BC0086DD00 /* HMHomeTopItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182D3759249464BC0086DD00 /* HMHomeTopItem.xib */; };
+		182D3766249657330086DD00 /* HMSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D3765249657330086DD00 /* HMSortViewController.m */; };
+		182D37692496575A0086DD00 /* HMCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D37682496575A0086DD00 /* HMCategoryViewController.m */; };
+		182D376C2496576B0086DD00 /* HMDistrictViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D376B2496576B0086DD00 /* HMDistrictViewController.m */; };
+		182D377B249671860086DD00 /* categories.plist in Resources */ = {isa = PBXBuildFile; fileRef = 182D3777249671860086DD00 /* categories.plist */; };
+		182D377C249671860086DD00 /* cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = 182D3778249671860086DD00 /* cities.plist */; };
+		182D377D249671860086DD00 /* cityGroups.plist in Resources */ = {isa = PBXBuildFile; fileRef = 182D3779249671860086DD00 /* cityGroups.plist */; };
+		182D377E249671860086DD00 /* sorts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 182D377A249671860086DD00 /* sorts.plist */; };
+		182D3784249671860086DD00 /* HMSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D3783249671860086DD00 /* HMSort.m */; };
+		182D378C249671860086DD00 /* HMDataTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D378B249671860086DD00 /* HMDataTool.m */; };
 		185F9210248FD6E100A53064 /* HMPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F920F248FD6E100A53064 /* HMPerson.m */; };
 		185F9220249059DE00A53064 /* HMHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F921F249059DE00A53064 /* HMHomeViewController.m */; };
 		185F92282492652A00A53064 /* HMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F92272492652A00A53064 /* HMNavigationController.m */; };
@@ -23,6 +32,7 @@
 		18A05996248DCD4900E17CCE /* DPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A05992248DCD4900E17CCE /* DPAPI.m */; };
 		18A05997248DCD4900E17CCE /* DPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A05995248DCD4900E17CCE /* DPRequest.m */; };
 		18A0599B248E75F200E17CCE /* DPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A0599A248E75F200E17CCE /* DPConstants.m */; };
+		45E2BC7028384189C09C8950 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FE9288A761ED9AD31F898FF /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +53,20 @@
 		182D3756249464A60086DD00 /* HMHomeTopItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMHomeTopItem.h; sourceTree = "<group>"; };
 		182D3757249464A60086DD00 /* HMHomeTopItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMHomeTopItem.m; sourceTree = "<group>"; };
 		182D3759249464BC0086DD00 /* HMHomeTopItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HMHomeTopItem.xib; sourceTree = "<group>"; };
+		182D3764249657330086DD00 /* HMSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSortViewController.h; sourceTree = "<group>"; };
+		182D3765249657330086DD00 /* HMSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSortViewController.m; sourceTree = "<group>"; };
+		182D37672496575A0086DD00 /* HMCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMCategoryViewController.h; sourceTree = "<group>"; };
+		182D37682496575A0086DD00 /* HMCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMCategoryViewController.m; sourceTree = "<group>"; };
+		182D376A2496576B0086DD00 /* HMDistrictViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMDistrictViewController.h; sourceTree = "<group>"; };
+		182D376B2496576B0086DD00 /* HMDistrictViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMDistrictViewController.m; sourceTree = "<group>"; };
+		182D3777249671860086DD00 /* categories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = categories.plist; sourceTree = "<group>"; };
+		182D3778249671860086DD00 /* cities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cities.plist; sourceTree = "<group>"; };
+		182D3779249671860086DD00 /* cityGroups.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cityGroups.plist; sourceTree = "<group>"; };
+		182D377A249671860086DD00 /* sorts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sorts.plist; sourceTree = "<group>"; };
+		182D3782249671860086DD00 /* HMSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSort.h; sourceTree = "<group>"; };
+		182D3783249671860086DD00 /* HMSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSort.m; sourceTree = "<group>"; };
+		182D378A249671860086DD00 /* HMDataTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMDataTool.h; sourceTree = "<group>"; };
+		182D378B249671860086DD00 /* HMDataTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMDataTool.m; sourceTree = "<group>"; };
 		185F920E248FD6E100A53064 /* HMPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPerson.h; sourceTree = "<group>"; };
 		185F920F248FD6E100A53064 /* HMPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPerson.m; sourceTree = "<group>"; };
 		185F9211248FD72600A53064 /* HMSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMSingleton.h; sourceTree = "<group>"; };
@@ -68,6 +92,9 @@
 		18A05994248DCD4900E17CCE /* DPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPRequest.h; sourceTree = "<group>"; };
 		18A05995248DCD4900E17CCE /* DPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPRequest.m; sourceTree = "<group>"; };
 		18A0599A248E75F200E17CCE /* DPConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPConstants.m; sourceTree = "<group>"; };
+		2FE9288A761ED9AD31F898FF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F1C999732671982AD860D30 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E5C0168D8A7083F66FE6D45D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45E2BC7028384189C09C8950 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,11 +123,37 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
+		182D3776249671860086DD00 /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				182D3777249671860086DD00 /* categories.plist */,
+				182D3778249671860086DD00 /* cities.plist */,
+				182D3779249671860086DD00 /* cityGroups.plist */,
+				182D377A249671860086DD00 /* sorts.plist */,
+			);
+			path = Plist;
+			sourceTree = "<group>";
+		};
+		182D3789249671860086DD00 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				182D378A249671860086DD00 /* HMDataTool.h */,
+				182D378B249671860086DD00 /* HMDataTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		185F921D2490598100A53064 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				185F921E249059DE00A53064 /* HMHomeViewController.h */,
 				185F921F249059DE00A53064 /* HMHomeViewController.m */,
+				182D3764249657330086DD00 /* HMSortViewController.h */,
+				182D3765249657330086DD00 /* HMSortViewController.m */,
+				182D37672496575A0086DD00 /* HMCategoryViewController.h */,
+				182D37682496575A0086DD00 /* HMCategoryViewController.m */,
+				182D376A2496576B0086DD00 /* HMDistrictViewController.h */,
+				182D376B2496576B0086DD00 /* HMDistrictViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -119,6 +173,8 @@
 				18A0594C1B1EDC2000E17CCE /* 美团HD */,
 				18A059661B1EDC2000E17CCE /* 美团HDTests */,
 				18A0594B1B1EDC2000E17CCE /* Products */,
+				9D81CE25D417E82BA9469A70 /* Pods */,
+				96003757DACEFBB84489A483 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,6 +199,7 @@
 		18A0594D1B1EDC2000E17CCE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				182D3776249671860086DD00 /* Plist */,
 				18A059571B1EDC2000E17CCE /* Main.storyboard */,
 				18A0595A1B1EDC2000E17CCE /* Images.xcassets */,
 				18A0595C1B1EDC2000E17CCE /* LaunchScreen.xib */,
@@ -180,6 +237,7 @@
 		18A059771B1EE6C700E17CCE /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				182D3789249671860086DD00 /* Tool */,
 				185F921D2490598100A53064 /* Controller */,
 				18A0597B1B1EE6C700E17CCE /* Model */,
 				18A0597C1B1EE6C700E17CCE /* View */,
@@ -190,6 +248,8 @@
 		18A0597B1B1EE6C700E17CCE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				182D3782249671860086DD00 /* HMSort.h */,
+				182D3783249671860086DD00 /* HMSort.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,6 +322,23 @@
 			path = dianpingapi;
 			sourceTree = "<group>";
 		};
+		96003757DACEFBB84489A483 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2FE9288A761ED9AD31F898FF /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9D81CE25D417E82BA9469A70 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E5C0168D8A7083F66FE6D45D /* Pods.debug.xcconfig */,
+				4F1C999732671982AD860D30 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -269,9 +346,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18A0596D1B1EDC2000E17CCE /* Build configuration list for PBXNativeTarget "美团HD" */;
 			buildPhases = (
+				0BCB330FBFA05425A792B98F /* Check Pods Manifest.lock */,
 				18A059461B1EDC2000E17CCE /* Sources */,
 				18A059471B1EDC2000E17CCE /* Frameworks */,
 				18A059481B1EDC2000E17CCE /* Resources */,
+				177E93987EF64F36916E09C3 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -343,9 +422,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				182D377E249671860086DD00 /* sorts.plist in Resources */,
 				18A059591B1EDC2000E17CCE /* Main.storyboard in Resources */,
 				18A0595E1B1EDC2000E17CCE /* LaunchScreen.xib in Resources */,
+				182D377D249671860086DD00 /* cityGroups.plist in Resources */,
 				182D375A249464BC0086DD00 /* HMHomeTopItem.xib in Resources */,
+				182D377C249671860086DD00 /* cities.plist in Resources */,
+				182D377B249671860086DD00 /* categories.plist in Resources */,
 				18A0595B1B1EDC2000E17CCE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,6 +442,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0BCB330FBFA05425A792B98F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		177E93987EF64F36916E09C3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		18A059461B1EDC2000E17CCE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -367,12 +483,17 @@
 				182D37422493BA9D0086DD00 /* UIView+Extension.m in Sources */,
 				18A05997248DCD4900E17CCE /* DPRequest.m in Sources */,
 				185F9210248FD6E100A53064 /* HMPerson.m in Sources */,
+				182D3784249671860086DD00 /* HMSort.m in Sources */,
+				182D378C249671860086DD00 /* HMDataTool.m in Sources */,
 				18A0599B248E75F200E17CCE /* DPConstants.m in Sources */,
 				182D3758249464A60086DD00 /* HMHomeTopItem.m in Sources */,
+				182D3766249657330086DD00 /* HMSortViewController.m in Sources */,
 				18A05996248DCD4900E17CCE /* DPAPI.m in Sources */,
 				185F92282492652A00A53064 /* HMNavigationController.m in Sources */,
 				182D3750249446740086DD00 /* UIBarButtonItem+Extension.m in Sources */,
+				182D376C2496576B0086DD00 /* HMDistrictViewController.m in Sources */,
 				185F9220249059DE00A53064 /* HMHomeViewController.m in Sources */,
+				182D37692496575A0086DD00 /* HMCategoryViewController.m in Sources */,
 				18A059841B1EE6C700E17CCE /* AppDelegate.m in Sources */,
 				18A059851B1EE6C700E17CCE /* main.m in Sources */,
 			);
@@ -500,6 +621,7 @@
 		};
 		18A0596E1B1EDC2000E17CCE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5C0168D8A7083F66FE6D45D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -512,6 +634,7 @@
 		};
 		18A0596F1B1EDC2000E17CCE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F1C999732671982AD860D30 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

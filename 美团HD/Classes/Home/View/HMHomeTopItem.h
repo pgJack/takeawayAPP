@@ -9,12 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface HMHomeTopItem : UIView
-/** 标题 */
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-/** 子标题 */
-@property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;
-/** 图标按钮 */
-@property (weak, nonatomic) IBOutlet UIButton *iconButton;
 + (instancetype)item;
+
+- (void)setTitle:(NSString *)title;
+- (void)setSubtitle:(NSString *)subtitle;
+- (void)setIcon:(NSString *)icon highIcon:(NSString *)highIcon;
+- (void)addTarget:(id)target action:(SEL)action;
 
 @end

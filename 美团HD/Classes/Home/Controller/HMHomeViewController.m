@@ -9,9 +9,17 @@
 #import "HMHomeViewController.h"
 #import "UIBarButtonItem+Extension.h"
 #import "HMHomeTopItem.h"
+#import "HMCategoryViewController.h"
+#import "HMDistrictViewController.h"
+#import "HMSortViewController.h"
 
 @interface HMHomeViewController ()
-
+/** 分类item */
+@property(nonatomic, weak) UIBarButtonItem *categoryItem;
+/** 区域item */
+@property(nonatomic, weak) UIBarButtonItem *districtItem;
+/** 排序item */
+@property(nonatomic, weak) UIBarButtonItem *sortItem;
 @end
 
 @implementation HMHomeViewController
@@ -44,28 +52,31 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // 类别
     HMHomeTopItem *categoryTopItem = [HMHomeTopItem item];
-    [categoryTopItem.iconButton setImage:[UIImage imageNamed:@"icon_category_-1"] forState:UIControlStateNormal];
-    [categoryTopItem.iconButton setImage:[UIImage imageNamed:@"icon_category_highlighted_-1"] forState:UIControlStateHighlighted];
-    categoryTopItem.titleLabel.text = @"全部分类";
-    categoryTopItem.subtitleLabel.text = nil;
+    [categoryTopItem setIcon:@"icon_category_-1" highIcon:@"icon_category_highlighted_-1"];
+    categoryTopItem.title = @"全部分类";
+    categoryTopItem.subtitle = nil;
+    [categoryTopItem addTarget:self action:@selector(categoryClick)];
     UIBarButtonItem *categoryItem = [[UIBarButtonItem alloc] initWithCustomView:categoryTopItem];
+    self.categoryItem = categoryItem;
     
     
     // 区域
     HMHomeTopItem *districtTopItem = [HMHomeTopItem item];
-    [districtTopItem.iconButton setImage:[UIImage imageNamed:@"icon_district"] forState:UIControlStateNormal];
-    [districtTopItem.iconButton setImage:[UIImage imageNamed:@"icon_district_highlighted"] forState:UIControlStateHighlighted];
-    districtTopItem.titleLabel.text = @"北京";
-    districtTopItem.subtitleLabel.text = @"海淀区";
+    [districtTopItem setIcon:@"icon_district" highIcon:@"icon_district_highlighted"];
+    districtTopItem.title = @"北京";
+    districtTopItem.subtitle = @"海淀区";
+    [districtTopItem addTarget:self action:@selector(districtClick)];
     UIBarButtonItem *districtItem = [[UIBarButtonItem alloc] initWithCustomView:districtTopItem];
+    self.districtItem = districtItem;
     
     // 排序
     HMHomeTopItem *sortTopItem = [HMHomeTopItem item];
-    [sortTopItem.iconButton setImage:[UIImage imageNamed:@"icon_sort"] forState:UIControlStateNormal];
-    [sortTopItem.iconButton setImage:[UIImage imageNamed:@"icon_sort_highlighted"] forState:UIControlStateHighlighted];
-    sortTopItem.titleLabel.text = @"排序";
-    sortTopItem.subtitleLabel.text = @"默认排序";
+    [sortTopItem setIcon:@"icon_sort" highIcon:@"icon_sort_highlighted"];
+    sortTopItem.title = @"排序";
+    sortTopItem.subtitle = @"默认排序";
+    [sortTopItem addTarget:self action:@selector(sortClick)];
     UIBarButtonItem *sortItem = [[UIBarButtonItem alloc] initWithCustomView:sortTopItem];
+    self.sortItem = sortItem;
     
     self.navigationItem.leftBarButtonItems = @[logoItem, categoryItem, districtItem, sortItem];
 }
@@ -86,6 +97,38 @@ static NSString * const reuseIdentifier = @"Cell";
     self.navigationItem.rightBarButtonItems = @[mapItem, searchItem];
 }
 
+
+#pragma mark - 导航栏事件处理
+/**
+ *  点击了分类
+ */
+- (void)categoryClick
+{
+    HMCategoryViewController *categoryVc = [[HMCategoryViewController alloc] init];
+    categoryVc.modalPresentationStyle = UIModalPresentationPopover;
+    categoryVc.popoverPresentationController.barButtonItem = self.categoryItem;
+    [self presentViewController:categoryVc animated:YES completion:nil];
+}
+/**
+ *  点击了区域
+ */
+- (void)districtClick
+{
+    HMDistrictViewController *districtVc = [[HMDistrictViewController alloc] init];
+    districtVc.modalPresentationStyle = UIModalPresentationPopover;
+    districtVc.popoverPresentationController.barButtonItem = self.districtItem;
+    [self presentViewController:districtVc animated:YES completion:nil];
+}
+/**
+ *  点击了排序
+ */
+- (void)sortClick
+{
+    HMSortViewController *sortVc = [[HMSortViewController alloc] init];
+    sortVc.modalPresentationStyle = UIModalPresentationPopover;
+    sortVc.popoverPresentationController.barButtonItem = self.sortItem;
+    [self presentViewController:sortVc animated:YES completion:nil];
+}
 /**
  *  点击了搜索按钮
  */
