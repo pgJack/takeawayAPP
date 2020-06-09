@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18A059501B1EDC2000E17CCE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A0594F1B1EDC2000E17CCE /* main.m */; };
-		18A059531B1EDC2000E17CCE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A059521B1EDC2000E17CCE /* AppDelegate.m */; };
-		18A059561B1EDC2000E17CCE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A059551B1EDC2000E17CCE /* ViewController.m */; };
+		185F9210248FD6E100A53064 /* HMPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F920F248FD6E100A53064 /* HMPerson.m */; };
 		18A059591B1EDC2000E17CCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A059571B1EDC2000E17CCE /* Main.storyboard */; };
 		18A0595B1B1EDC2000E17CCE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18A0595A1B1EDC2000E17CCE /* Images.xcassets */; };
 		18A0595E1B1EDC2000E17CCE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A0595C1B1EDC2000E17CCE /* LaunchScreen.xib */; };
 		18A0596A1B1EDC2000E17CCE /* __HDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A059691B1EDC2000E17CCE /* __HDTests.m */; };
+		18A059831B1EE6C700E17CCE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A0597A1B1EE6C700E17CCE /* ViewController.m */; };
+		18A059841B1EE6C700E17CCE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A0597F1B1EE6C700E17CCE /* AppDelegate.m */; };
+		18A059851B1EE6C700E17CCE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A059821B1EE6C700E17CCE /* main.m */; };
+		18A05996248DCD4900E17CCE /* DPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A05992248DCD4900E17CCE /* DPAPI.m */; };
+		18A05997248DCD4900E17CCE /* DPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A05995248DCD4900E17CCE /* DPRequest.m */; };
+		18A0599B248E75F200E17CCE /* DPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A0599A248E75F200E17CCE /* DPConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +31,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		185F920E248FD6E100A53064 /* HMPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPerson.h; sourceTree = "<group>"; };
+		185F920F248FD6E100A53064 /* HMPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPerson.m; sourceTree = "<group>"; };
+		185F9211248FD72600A53064 /* HMSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMSingleton.h; sourceTree = "<group>"; };
+		185F9214249006EF00A53064 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		18A0594A1B1EDC2000E17CCE /* 美团HD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "美团HD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A0594E1B1EDC2000E17CCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18A0594F1B1EDC2000E17CCE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		18A059511B1EDC2000E17CCE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		18A059521B1EDC2000E17CCE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		18A059541B1EDC2000E17CCE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		18A059551B1EDC2000E17CCE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		18A059581B1EDC2000E17CCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18A0595A1B1EDC2000E17CCE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		18A0595D1B1EDC2000E17CCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		18A059631B1EDC2000E17CCE /* 美团HDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "美团HDTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A059681B1EDC2000E17CCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18A059691B1EDC2000E17CCE /* __HDTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = __HDTests.m; sourceTree = "<group>"; };
+		18A059791B1EE6C700E17CCE /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		18A0597A1B1EE6C700E17CCE /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		18A0597E1B1EE6C700E17CCE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		18A0597F1B1EE6C700E17CCE /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		18A059821B1EE6C700E17CCE /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		18A05991248DCD4900E17CCE /* DPAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAPI.h; sourceTree = "<group>"; };
+		18A05992248DCD4900E17CCE /* DPAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAPI.m; sourceTree = "<group>"; };
+		18A05993248DCD4900E17CCE /* DPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPConstants.h; sourceTree = "<group>"; };
+		18A05994248DCD4900E17CCE /* DPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPRequest.h; sourceTree = "<group>"; };
+		18A05995248DCD4900E17CCE /* DPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPRequest.m; sourceTree = "<group>"; };
+		18A0599A248E75F200E17CCE /* DPConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +95,7 @@
 		18A0594C1B1EDC2000E17CCE /* 美团HD */ = {
 			isa = PBXGroup;
 			children = (
-				18A059511B1EDC2000E17CCE /* AppDelegate.h */,
-				18A059521B1EDC2000E17CCE /* AppDelegate.m */,
-				18A059541B1EDC2000E17CCE /* ViewController.h */,
-				18A059551B1EDC2000E17CCE /* ViewController.m */,
-				18A059571B1EDC2000E17CCE /* Main.storyboard */,
-				18A0595A1B1EDC2000E17CCE /* Images.xcassets */,
-				18A0595C1B1EDC2000E17CCE /* LaunchScreen.xib */,
+				18A059761B1EE6C700E17CCE /* Classes */,
 				18A0594D1B1EDC2000E17CCE /* Supporting Files */,
 			);
 			path = "美团HD";
@@ -96,8 +104,10 @@
 		18A0594D1B1EDC2000E17CCE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				18A059571B1EDC2000E17CCE /* Main.storyboard */,
+				18A0595A1B1EDC2000E17CCE /* Images.xcassets */,
+				18A0595C1B1EDC2000E17CCE /* LaunchScreen.xib */,
 				18A0594E1B1EDC2000E17CCE /* Info.plist */,
-				18A0594F1B1EDC2000E17CCE /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -117,6 +127,100 @@
 				18A059681B1EDC2000E17CCE /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18A059761B1EE6C700E17CCE /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				18A059771B1EE6C700E17CCE /* Home */,
+				18A0597D1B1EE6C700E17CCE /* Other */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		18A059771B1EE6C700E17CCE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				18A059781B1EE6C700E17CCE /* Controller */,
+				18A0597B1B1EE6C700E17CCE /* Model */,
+				18A0597C1B1EE6C700E17CCE /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		18A059781B1EE6C700E17CCE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18A059791B1EE6C700E17CCE /* ViewController.h */,
+				18A0597A1B1EE6C700E17CCE /* ViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18A0597B1B1EE6C700E17CCE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18A0597C1B1EE6C700E17CCE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18A0597D1B1EE6C700E17CCE /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				18A0597E1B1EE6C700E17CCE /* AppDelegate.h */,
+				18A0597F1B1EE6C700E17CCE /* AppDelegate.m */,
+				185F9211248FD72600A53064 /* HMSingleton.h */,
+				185F9214249006EF00A53064 /* PrefixHeader.pch */,
+				18A059801B1EE6C700E17CCE /* Category */,
+				18A059811B1EE6C700E17CCE /* Lib */,
+				18A059821B1EE6C700E17CCE /* main.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		18A059801B1EE6C700E17CCE /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		18A059811B1EE6C700E17CCE /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				18A0598F248DCD3C00E17CCE /* DP */,
+				185F920E248FD6E100A53064 /* HMPerson.h */,
+				185F920F248FD6E100A53064 /* HMPerson.m */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		18A0598F248DCD3C00E17CCE /* DP */ = {
+			isa = PBXGroup;
+			children = (
+				18A05990248DCD4900E17CCE /* dianpingapi */,
+			);
+			path = DP;
+			sourceTree = "<group>";
+		};
+		18A05990248DCD4900E17CCE /* dianpingapi */ = {
+			isa = PBXGroup;
+			children = (
+				18A05991248DCD4900E17CCE /* DPAPI.h */,
+				18A05992248DCD4900E17CCE /* DPAPI.m */,
+				18A05993248DCD4900E17CCE /* DPConstants.h */,
+				18A0599A248E75F200E17CCE /* DPConstants.m */,
+				18A05994248DCD4900E17CCE /* DPRequest.h */,
+				18A05995248DCD4900E17CCE /* DPRequest.m */,
+			);
+			path = dianpingapi;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +267,7 @@
 		18A059421B1EDC1F00E17CCE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = HM;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = itheima;
 				TargetAttributes = {
@@ -219,9 +324,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18A059561B1EDC2000E17CCE /* ViewController.m in Sources */,
-				18A059531B1EDC2000E17CCE /* AppDelegate.m in Sources */,
-				18A059501B1EDC2000E17CCE /* main.m in Sources */,
+				18A05997248DCD4900E17CCE /* DPRequest.m in Sources */,
+				185F9210248FD6E100A53064 /* HMPerson.m in Sources */,
+				18A0599B248E75F200E17CCE /* DPConstants.m in Sources */,
+				18A05996248DCD4900E17CCE /* DPAPI.m in Sources */,
+				18A059841B1EE6C700E17CCE /* AppDelegate.m in Sources */,
+				18A059851B1EE6C700E17CCE /* main.m in Sources */,
+				18A059831B1EE6C700E17CCE /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +458,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "美团HD/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = "美团HD/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -359,6 +469,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "美团HD/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = "美团HD/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -418,6 +529,7 @@
 				18A0596F1B1EDC2000E17CCE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18A059701B1EDC2000E17CCE /* Build configuration list for PBXNativeTarget "美团HDTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +538,7 @@
 				18A059721B1EDC2000E17CCE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
