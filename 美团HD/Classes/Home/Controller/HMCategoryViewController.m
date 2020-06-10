@@ -7,6 +7,10 @@
 //
 
 #import "HMCategoryViewController.h"
+#import "HMDataTool.h"
+#import "HMCategory.h"
+#import "HMDropDownLeftCell.h"
+#import "HMDropDownRightCell.h"
 
 @interface HMCategoryViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *leftTableView;
@@ -19,30 +23,44 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = HMRandomColor;
+    CGFloat rowHeight = 40;
+    self.leftTableView.rowHeight = rowHeight;
+    self.rightTableView.rowHeight = rowHeight;
+    self.preferredContentSize = CGSizeMake(400, rowHeight * [HMDataTool categories].count);
 }
 
 #pragma mark - 数据源方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView == self.leftTableView) {
-        return 20;
-    } else {
-        return 10;
+    if (tableView == self.leftTableView) { // 左边
+        return [HMDataTool categories].count;
+    } else { // 右边
+        // 左边表格选中的行号
+        NSInteger leftSelectedRow = [self.leftTableView indexPathForSelectedRow].row;
+        HMCategory *category = [HMDataTool categories][leftSelectedRow];
+        return category.subcategories.count;
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-    }
-    if (tableView == self.leftTableView) {
-        cell.textLabel.text = [NSString stringWithFormat:@"左边cell -- %zd",indexPath.row];
-    } else {
-        cell.textLabel.text = [NSString stringWithFormat:@"右边cell -- %zd",indexPath.row];
+    UITableViewCell *cell = nil;
+    if (tableView == self.leftTableView) { // 左边
+        cell = [HMDropDownLeftCell cellWithTableView:tableView];
+    
+        HMCategory *category = [HMDataTool categories][indexPath.row];
+        cell.textLabel.text = category.name;
+        cell.accessoryType = category.subcategories ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
+        cell.imageView.image = [UIImage imageNamed:category.small_icon];
+        cell.imageView.highlightedImage = [UIImage imageNamed:category.small_highlighted_icon];
+        
+    } else { // 右边
+        cell = [HMDropDownRightCell cellWithTableView:tableView];
+        
+        // 左边表格选中的行号
+        NSInteger leftSelectedRow = [self.leftTableView indexPathForSelectedRow].row;
+        HMCategory *category = [HMDataTool categories][leftSelectedRow];
+        cell.textLabel.text = category.subcategories[indexPath.row];
     }
     
     return cell;
@@ -51,9 +69,10 @@
 #pragma mark - 代理方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (tableView == self.leftTableView) {
-        HMLog(@"点击了左边第%zd行",indexPath.row);
-    } else {
+    if (tableView == self.leftTableView) { // 左边
+        // 刷新右边
+        [self.rightTableView reloadData];
+    } else { // 右边
         HMLog(@"点击了右边第%zd行",indexPath.row);
     }
 }

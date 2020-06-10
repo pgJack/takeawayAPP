@@ -14,4 +14,10 @@
  */
 + (NSArray *)sorts;
 
+/**
+ *  返回所有的排序数据 (里面都是HMCategory模型)
+ */
++ (NSArray *)categories;
+
+
 @end
