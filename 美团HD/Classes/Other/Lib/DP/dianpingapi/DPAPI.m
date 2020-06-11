@@ -15,21 +15,11 @@ typedef void (^DPBlock)(id result, NSError *error);
 {
     NSMutableSet *_requests;
 }
-/** 存放所有请求的 block */
-@property (nonatomic, strong) NSMutableDictionary *blocks;
 
 @end
 
 
 @implementation DPAPI
-#pragma mark - 懒加载
-- (NSMutableDictionary *)blocks
-{
-    if (_blocks == nil) {
-        _blocks = [[NSMutableDictionary alloc] init];
-    }
-    return _blocks;
-}
 
 #pragma mark - 后来自己添加的代码
 - (DPRequest *)request:(NSString *)url params:(NSDictionary *)params success:(DPSuccess)success failure:(DPFailure)failure
@@ -39,14 +29,8 @@ typedef void (^DPBlock)(id result, NSError *error);
     DPRequest *request = [self requestWithURL:url params:mutableParams delegate:self];
     
     // 存储这次请求对应的 block
-    NSString *key = request.description;
-    self.blocks[key] = ^(id result, NSError *error) {
-        if (result && success) {
-            success(result);
-        } else if (error && failure) {
-            failure(error);
-        }
-    };
+    request.success = success;
+    request.failure = failure;
     
     // 返回请求对象
     return request;
@@ -63,16 +47,9 @@ HMSingleton_M
  */
 - (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result
 {
-    DPBlock block = self.blocks[request.description];
-    block(result, nil);
-    
-//    ^(id result, NSError *error) {
-//        if (result && success) {
-//            success(result);
-//        } else if (error && failure) {
-//            failure(error);
-//        }
-//    }(result, nil);
+    if (request.success) {
+        request.success(result);
+    }
 }
 
 /**
@@ -83,8 +60,9 @@ HMSingleton_M
  */
 - (void)request:(DPRequest *)request didFailWithError:(NSError *)error
 {
-    DPBlock block = self.blocks[request.description];
-    block(nil, error);
+    if (request.failure) {
+        request.failure(error);
+    }
 }
 
 

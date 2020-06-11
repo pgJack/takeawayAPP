@@ -8,10 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^DPSuccess)(id json);
+typedef void(^DPFailure)(NSError *error);
+
+
 @class DPAPI;
 @protocol DPRequestDelegate;
 
 @interface DPRequest : NSObject
+
+/** 请求成功的回调 */
+@property (nonatomic, copy) DPSuccess success;
+/** 请求失败的回调 */
+@property (nonatomic, copy) DPFailure failure;
 
 @property (nonatomic, weak) DPAPI *dpapi;
 @property (nonatomic, strong) NSString *url;

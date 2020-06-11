@@ -10,9 +10,6 @@
 #import "DPRequest.h"
 #import "HMSingleton.h"
 
-typedef void (^DPSuccess)(id json);
-typedef void(^DPFailure)(NSError *error);
-
 @interface DPAPI : NSObject
 
 - (DPRequest*)requestWithURL:(NSString *)url

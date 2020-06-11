@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		185F9210248FD6E100A53064 /* HMPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F920F248FD6E100A53064 /* HMPerson.m */; };
+		185F9220249059DE00A53064 /* HMHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F921F249059DE00A53064 /* HMHomeViewController.m */; };
+		185F92282492652A00A53064 /* HMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F92272492652A00A53064 /* HMNavigationController.m */; };
 		18A059591B1EDC2000E17CCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A059571B1EDC2000E17CCE /* Main.storyboard */; };
 		18A0595B1B1EDC2000E17CCE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18A0595A1B1EDC2000E17CCE /* Images.xcassets */; };
 		18A0595E1B1EDC2000E17CCE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A0595C1B1EDC2000E17CCE /* LaunchScreen.xib */; };
 		18A0596A1B1EDC2000E17CCE /* __HDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A059691B1EDC2000E17CCE /* __HDTests.m */; };
-		18A059831B1EE6C700E17CCE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A0597A1B1EE6C700E17CCE /* ViewController.m */; };
 		18A059841B1EE6C700E17CCE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A0597F1B1EE6C700E17CCE /* AppDelegate.m */; };
 		18A059851B1EE6C700E17CCE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A059821B1EE6C700E17CCE /* main.m */; };
 		18A05996248DCD4900E17CCE /* DPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A05992248DCD4900E17CCE /* DPAPI.m */; };
@@ -35,6 +36,10 @@
 		185F920F248FD6E100A53064 /* HMPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPerson.m; sourceTree = "<group>"; };
 		185F9211248FD72600A53064 /* HMSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMSingleton.h; sourceTree = "<group>"; };
 		185F9214249006EF00A53064 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		185F921E249059DE00A53064 /* HMHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMHomeViewController.h; sourceTree = "<group>"; };
+		185F921F249059DE00A53064 /* HMHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMHomeViewController.m; sourceTree = "<group>"; };
+		185F92262492652A00A53064 /* HMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMNavigationController.h; sourceTree = "<group>"; };
+		185F92272492652A00A53064 /* HMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMNavigationController.m; sourceTree = "<group>"; };
 		18A0594A1B1EDC2000E17CCE /* 美团HD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "美团HD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A0594E1B1EDC2000E17CCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18A059581B1EDC2000E17CCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -43,8 +48,6 @@
 		18A059631B1EDC2000E17CCE /* 美团HDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "美团HDTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A059681B1EDC2000E17CCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18A059691B1EDC2000E17CCE /* __HDTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = __HDTests.m; sourceTree = "<group>"; };
-		18A059791B1EE6C700E17CCE /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		18A0597A1B1EE6C700E17CCE /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		18A0597E1B1EE6C700E17CCE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		18A0597F1B1EE6C700E17CCE /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		18A059821B1EE6C700E17CCE /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -74,6 +77,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		185F921D2490598100A53064 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				185F921E249059DE00A53064 /* HMHomeViewController.h */,
+				185F921F249059DE00A53064 /* HMHomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		185F92252492650F00A53064 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				185F92262492652A00A53064 /* HMNavigationController.h */,
+				185F92272492652A00A53064 /* HMNavigationController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		18A059411B1EDC1F00E17CCE = {
 			isa = PBXGroup;
 			children = (
@@ -141,20 +162,11 @@
 		18A059771B1EE6C700E17CCE /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				18A059781B1EE6C700E17CCE /* Controller */,
+				185F921D2490598100A53064 /* Controller */,
 				18A0597B1B1EE6C700E17CCE /* Model */,
 				18A0597C1B1EE6C700E17CCE /* View */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		18A059781B1EE6C700E17CCE /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				18A059791B1EE6C700E17CCE /* ViewController.h */,
-				18A0597A1B1EE6C700E17CCE /* ViewController.m */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		18A0597B1B1EE6C700E17CCE /* Model */ = {
@@ -174,6 +186,7 @@
 		18A0597D1B1EE6C700E17CCE /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				185F92252492650F00A53064 /* Controller */,
 				18A0597E1B1EE6C700E17CCE /* AppDelegate.h */,
 				18A0597F1B1EE6C700E17CCE /* AppDelegate.m */,
 				185F9211248FD72600A53064 /* HMSingleton.h */,
@@ -328,9 +341,10 @@
 				185F9210248FD6E100A53064 /* HMPerson.m in Sources */,
 				18A0599B248E75F200E17CCE /* DPConstants.m in Sources */,
 				18A05996248DCD4900E17CCE /* DPAPI.m in Sources */,
+				185F92282492652A00A53064 /* HMNavigationController.m in Sources */,
+				185F9220249059DE00A53064 /* HMHomeViewController.m in Sources */,
 				18A059841B1EE6C700E17CCE /* AppDelegate.m in Sources */,
 				18A059851B1EE6C700E17CCE /* main.m in Sources */,
-				18A059831B1EE6C700E17CCE /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +472,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = "美团HD/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = "美团HD/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -469,6 +484,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = "美团HD/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = "美团HD/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
