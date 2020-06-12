@@ -1,14 +1,14 @@
 //
-//  HMBarButtonItemTool.h
+//  UIBarButtonItem+Extension.h
 //  美团HD
 //
 //  Created by apple on 20/6/13.
 //  Copyright (c) 2020年 itheima. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface HMBarButtonItemTool : NSObject
+@interface UIBarButtonItem (Extension)
 
 /**
  *  创建一个拥有2张图片的item对象
@@ -20,5 +20,5 @@
  *
  *  @return 返回创建好的item对象
  */
-+ (UIBarButtonItem *)itemWithImage:(NSString *)image highImage:(NSString *)highImage target:(id)target action:(SEL)action;
++ (instancetype)itemWithImage:(NSString *)image highImage:(NSString *)highImage target:(id)target action:(SEL)action;
 @end

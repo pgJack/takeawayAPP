@@ -7,7 +7,7 @@
 //
 
 #import "HMHomeViewController.h"
-#import "HMBarButtonItemTool.h"
+#import "UIBarButtonItem+Extension.h"
 
 @interface HMHomeViewController ()
 
@@ -51,11 +51,11 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     
     // search
-    UIBarButtonItem *searchItem = [HMBarButtonItemTool itemWithImage:@"icon_search" highImage:@"icon_search_highlighted" target:self action:@selector(searchClick)];
+    UIBarButtonItem *searchItem = [UIBarButtonItem itemWithImage:@"icon_search" highImage:@"icon_search_highlighted" target:self action:@selector(searchClick)];
     searchItem.customView.width = 50;
     
     // map
-    UIBarButtonItem *mapItem = [HMBarButtonItemTool itemWithImage:@"icon_map" highImage:@"icon_map_highlighted" target:self action:@selector(mapClick)];
+    UIBarButtonItem *mapItem = [UIBarButtonItem itemWithImage:@"icon_map" highImage:@"icon_map_highlighted" target:self action:@selector(mapClick)];
     mapItem.customView.width = 50;
     
     self.navigationItem.rightBarButtonItems = @[mapItem, searchItem];
