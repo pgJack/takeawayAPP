@@ -12,6 +12,8 @@
 #import "HMCategoryViewController.h"
 #import "HMDistrictViewController.h"
 #import "HMSortViewController.h"
+#import "HMSort.h"
+#import "HMCategory.h"
 
 @interface HMHomeViewController ()
 /** 分类item */
@@ -40,6 +42,23 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // 设置导航栏右边
     [self setupNavRight];
+    
+    // 监听通知
+    [self setupNotes];
+}
+
+/**
+ *  监听通知
+ */
+- (void)setupNotes
+{
+    [HMNoteCenter addObserver:self selector:@selector(sortDidChange:) name:HMSortDidChangeNotification object:nil];
+    [HMNoteCenter addObserver:self selector:@selector(categoryDidChange:) name:HMCategoryDidChangeNotification object:nil];
+}
+
+- (void)dealloc
+{
+    [HMNoteCenter removeObserver:self];
 }
 
 /**
@@ -97,6 +116,31 @@ static NSString * const reuseIdentifier = @"Cell";
     self.navigationItem.rightBarButtonItems = @[mapItem, searchItem];
 }
 
+#pragma mark - 通知处理
+- (void)sortDidChange:(NSNotification *)note
+{
+    // 更新导航栏顶部排序的子标题
+    HMHomeTopItem *topItem = (HMHomeTopItem *)self.sortItem.customView;
+    HMSort *sort = note.userInfo[HMCurrentSortKey];
+    topItem.subtitle = sort.label;
+    
+#warning TODO 重新发送请求给服务器
+}
+
+- (void)categoryDidChange:(NSNotification *)note
+{
+    // 更新导航栏顶部类别菜单的内容
+    HMHomeTopItem *topItem = (HMHomeTopItem *)self.categoryItem.customView;
+    // 取出模型
+    HMCategory *category = note.userInfo[HMCurrentCategoryKey];
+    int subcategoryIndex = [note.userInfo[HMCurrentSubcategoryIndexKey] intValue];
+    NSString *subcategory = category.subcategories[subcategoryIndex];
+    topItem.title = category.name;
+    topItem.subtitle = subcategory;
+    [topItem setIcon:category.icon highIcon:category.highlighted_icon];
+    
+#warning TODO 重新发送请求给服务器
+}
 
 #pragma mark - 导航栏事件处理
 /**

@@ -18,13 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.view.backgroundColor = HMRandomColor;
-    
-//    NSArray *dictArray = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"sorts.plist" ofType:nil]];
-//    NSArray *sortArray = [HMSort objectArrayWithKeyValuesArray:dictArray];
-    
-    
-    
     // 根据plist数组创建对应个数的排序按钮
     NSArray *sorts = [HMDataTool sorts];
     NSUInteger count = sorts.count;
@@ -32,6 +25,7 @@
     UIButton *lastButton = nil;
     for (int i = 0; i < count; i++) {
         UIButton *button = [[UIButton alloc] init];
+        button.tag = i;
         [self.view addSubview:button];
         lastButton = button;
         
@@ -45,6 +39,9 @@
         [button setBackgroundImage:[UIImage imageNamed:@"btn_filter_normal"] forState:UIControlStateNormal];
         [button setBackgroundImage:[UIImage imageNamed:@"btn_filter_selected"] forState:UIControlStateHighlighted];
         
+        // 监听点击
+        [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+        
         // 设置frame
         button.width = 100;
         button.height = 30;
@@ -55,6 +52,17 @@
     CGFloat w = CGRectGetMaxX(lastButton.frame) + lastButton.x;
     CGFloat h = CGRectGetMaxY(lastButton.frame) + margin;
     self.preferredContentSize = CGSizeMake(w, h);
+}
+
+- (void)buttonClick:(UIButton *)button
+{
+    // 1. 让popover消失
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    // 2. 发出通知
+    NSDictionary *userInfo = @{HMCurrentSortKey : [HMDataTool sorts][button.tag]};
+    [HMNoteCenter postNotificationName:HMSortDidChangeNotification object:nil userInfo:userInfo];
+    
 }
 
 @end

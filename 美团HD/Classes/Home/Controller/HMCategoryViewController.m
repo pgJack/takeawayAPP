@@ -72,9 +72,33 @@
     if (tableView == self.leftTableView) { // 左边
         // 刷新右边
         [self.rightTableView reloadData];
+        
+        // 如果这个类别没有子类别, 得发送通知
+        HMCategory *category = [HMDataTool categories][indexPath.row];
+        if (category.subcategories.count == 0) { // 得发送通知
+            [self postNote:category subcategoryIndex:nil];
+        }
     } else { // 右边
-        HMLog(@"点击了右边第%zd行",indexPath.row);
+        // 发送通知
+        NSInteger leftSelectedRow = [self.leftTableView indexPathForSelectedRow].row;
+        HMCategory *category = [HMDataTool categories][leftSelectedRow];
+        [self postNote:category subcategoryIndex:@(indexPath.row)];
     }
+}
+
+#pragma mark - 私有方法
+- (void)postNote:(HMCategory *)category subcategoryIndex:(id)subcategoryIndex
+{
+    // 1. 销毁当前控制器
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    // 2. 发送通知
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+    userInfo[HMCurrentCategoryKey] = category;
+    if (subcategoryIndex) {
+        userInfo[HMCurrentSubcategoryIndexKey] = subcategoryIndex;
+    }
+    [HMNoteCenter postNotificationName:HMCategoryDidChangeNotification object:nil userInfo:userInfo];
 }
 
 

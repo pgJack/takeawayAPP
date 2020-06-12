@@ -27,6 +27,7 @@
 		189C0F76248F93D8004D1F61 /* HMCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C0F75248F93D8004D1F61 /* HMCategory.m */; };
 		189C0F7F2490BF54004D1F61 /* HMDropDownLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C0F7E2490BF54004D1F61 /* HMDropDownLeftCell.m */; };
 		189C0F822490BF64004D1F61 /* HMDropDownRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C0F812490BF64004D1F61 /* HMDropDownRightCell.m */; };
+		189C0F882490E302004D1F61 /* HMConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C0F872490E302004D1F61 /* HMConst.m */; };
 		18A059591B1EDC2000E17CCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A059571B1EDC2000E17CCE /* Main.storyboard */; };
 		18A0595B1B1EDC2000E17CCE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18A0595A1B1EDC2000E17CCE /* Images.xcassets */; };
 		18A0595E1B1EDC2000E17CCE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A0595C1B1EDC2000E17CCE /* LaunchScreen.xib */; };
@@ -86,6 +87,8 @@
 		189C0F7E2490BF54004D1F61 /* HMDropDownLeftCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMDropDownLeftCell.m; sourceTree = "<group>"; };
 		189C0F802490BF64004D1F61 /* HMDropDownRightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMDropDownRightCell.h; sourceTree = "<group>"; };
 		189C0F812490BF64004D1F61 /* HMDropDownRightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMDropDownRightCell.m; sourceTree = "<group>"; };
+		189C0F862490E302004D1F61 /* HMConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMConst.h; sourceTree = "<group>"; };
+		189C0F872490E302004D1F61 /* HMConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMConst.m; sourceTree = "<group>"; };
 		18A0594A1B1EDC2000E17CCE /* 美团HD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "美团HD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A0594E1B1EDC2000E17CCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18A059581B1EDC2000E17CCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -294,6 +297,8 @@
 				18A0597F1B1EE6C700E17CCE /* AppDelegate.m */,
 				185F9211248FD72600A53064 /* HMSingleton.h */,
 				185F9214249006EF00A53064 /* PrefixHeader.pch */,
+				189C0F862490E302004D1F61 /* HMConst.h */,
+				189C0F872490E302004D1F61 /* HMConst.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -499,6 +504,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				189C0F882490E302004D1F61 /* HMConst.m in Sources */,
 				182D37422493BA9D0086DD00 /* UIView+Extension.m in Sources */,
 				18A05997248DCD4900E17CCE /* DPRequest.m in Sources */,
 				185F9210248FD6E100A53064 /* HMPerson.m in Sources */,

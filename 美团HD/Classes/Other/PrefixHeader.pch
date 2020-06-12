@@ -17,3 +17,4 @@
 #define HMRandomColor HMRGBColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
 #define HMNoteCenter [NSNotificationCenter defaultCenter]
 #import "UIView+Extension.h"
+#import "HMConst.h"
