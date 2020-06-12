@@ -7,6 +7,7 @@
 //
 
 #import "HMHomeViewController.h"
+#import "HMBarButtonItemTool.h"
 
 @interface HMHomeViewController ()
 
@@ -37,9 +38,10 @@ static NSString * const reuseIdentifier = @"Cell";
  */
 - (void)setupNavLeft
 {
-//    UIImage *image = [UIImage imageNamed:@"icon_meituan_logo"];
-//    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_meituan_logo"] style:UIBarButtonItemStylePlain target:nil action:nil];
+    // logo
+    UIBarButtonItem *logoItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_meituan_logo"] style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    self.navigationItem.leftBarButtonItems = @[logoItem];
 }
 
 /**
@@ -48,6 +50,31 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)setupNavRight
 {
     
+    // search
+    UIBarButtonItem *searchItem = [HMBarButtonItemTool itemWithImage:@"icon_search" highImage:@"icon_search_highlighted" target:self action:@selector(searchClick)];
+    searchItem.customView.width = 50;
+    
+    // map
+    UIBarButtonItem *mapItem = [HMBarButtonItemTool itemWithImage:@"icon_map" highImage:@"icon_map_highlighted" target:self action:@selector(mapClick)];
+    mapItem.customView.width = 50;
+    
+    self.navigationItem.rightBarButtonItems = @[mapItem, searchItem];
+}
+
+/**
+ *  点击了搜索按钮
+ */
+- (void)searchClick
+{
+    HMLog(@"searchClick");
+}
+
+/**
+ *  点击了地图按钮
+ */
+- (void)mapClick
+{
+    HMLog(@"mapClick");
 }
 
 #pragma mark <UICollectionViewDataSource>

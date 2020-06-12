@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182D37422493BA9D0086DD00 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D37412493BA9D0086DD00 /* UIView+Extension.m */; };
+		182D374A24940DB90086DD00 /* HMBarButtonItemTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D374924940DB90086DD00 /* HMBarButtonItemTool.m */; };
 		185F9210248FD6E100A53064 /* HMPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F920F248FD6E100A53064 /* HMPerson.m */; };
 		185F9220249059DE00A53064 /* HMHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F921F249059DE00A53064 /* HMHomeViewController.m */; };
 		185F92282492652A00A53064 /* HMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F92272492652A00A53064 /* HMNavigationController.m */; };
@@ -32,6 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		182D37402493BA9D0086DD00 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		182D37412493BA9D0086DD00 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		182D374824940DB90086DD00 /* HMBarButtonItemTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMBarButtonItemTool.h; sourceTree = "<group>"; };
+		182D374924940DB90086DD00 /* HMBarButtonItemTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMBarButtonItemTool.m; sourceTree = "<group>"; };
 		185F920E248FD6E100A53064 /* HMPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPerson.h; sourceTree = "<group>"; };
 		185F920F248FD6E100A53064 /* HMPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPerson.m; sourceTree = "<group>"; };
 		185F9211248FD72600A53064 /* HMSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMSingleton.h; sourceTree = "<group>"; };
@@ -77,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		182D374724940D6D0086DD00 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				182D374824940DB90086DD00 /* HMBarButtonItemTool.h */,
+				182D374924940DB90086DD00 /* HMBarButtonItemTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		185F921D2490598100A53064 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +201,7 @@
 		18A0597D1B1EE6C700E17CCE /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				182D374724940D6D0086DD00 /* Tool */,
 				185F92252492650F00A53064 /* Controller */,
 				18A0597E1B1EE6C700E17CCE /* AppDelegate.h */,
 				18A0597F1B1EE6C700E17CCE /* AppDelegate.m */,
@@ -201,6 +217,8 @@
 		18A059801B1EE6C700E17CCE /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				182D37402493BA9D0086DD00 /* UIView+Extension.h */,
+				182D37412493BA9D0086DD00 /* UIView+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -337,12 +355,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				182D37422493BA9D0086DD00 /* UIView+Extension.m in Sources */,
 				18A05997248DCD4900E17CCE /* DPRequest.m in Sources */,
 				185F9210248FD6E100A53064 /* HMPerson.m in Sources */,
 				18A0599B248E75F200E17CCE /* DPConstants.m in Sources */,
 				18A05996248DCD4900E17CCE /* DPAPI.m in Sources */,
 				185F92282492652A00A53064 /* HMNavigationController.m in Sources */,
 				185F9220249059DE00A53064 /* HMHomeViewController.m in Sources */,
+				182D374A24940DB90086DD00 /* HMBarButtonItemTool.m in Sources */,
 				18A059841B1EE6C700E17CCE /* AppDelegate.m in Sources */,
 				18A059851B1EE6C700E17CCE /* main.m in Sources */,
 			);
