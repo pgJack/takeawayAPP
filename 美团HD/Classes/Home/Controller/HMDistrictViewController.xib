@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HMDistrictViewController">
+            <connections>
+                <outlet property="leftTableView" destination="Yrx-lO-m4U" id="TUm-AL-eCb"/>
+                <outlet property="rightTableView" destination="Siz-lK-DUt" id="aof-Ov-XZL"/>
+                <outlet property="view" destination="iN0-l3-epB" id="E6D-RH-qOv"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CpM-BC-vA7" userLabel="顶部view">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="35"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_cell_rightArrow" highlightedImage="icon_cell_rightArrow_selected" translatesAutoresizingMaskIntoConstraints="NO" id="Dyl-9b-0G0" userLabel="右边箭头">
+                            <rect key="frame" x="550" y="0.0" width="50" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="bB7-FB-YUO"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOf-bx-2J0">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="35"/>
+                            <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="切换城市" image="btn_changeCity">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" image="btn_changeCity_selected"/>
+                            <connections>
+                                <action selector="changeCity" destination="-1" eventType="touchUpInside" id="j5T-pb-v1m"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="dOf-bx-2J0" secondAttribute="bottom" id="FO9-u0-TJx"/>
+                        <constraint firstAttribute="trailing" secondItem="dOf-bx-2J0" secondAttribute="trailing" id="Krh-jk-iLv"/>
+                        <constraint firstItem="dOf-bx-2J0" firstAttribute="top" secondItem="CpM-BC-vA7" secondAttribute="top" id="MQo-5S-FV1"/>
+                        <constraint firstAttribute="bottom" secondItem="Dyl-9b-0G0" secondAttribute="bottom" id="N8e-oi-E3T"/>
+                        <constraint firstItem="Dyl-9b-0G0" firstAttribute="top" secondItem="CpM-BC-vA7" secondAttribute="top" id="U7o-Zu-aBD"/>
+                        <constraint firstItem="dOf-bx-2J0" firstAttribute="leading" secondItem="CpM-BC-vA7" secondAttribute="leading" id="V43-a1-2gX"/>
+                        <constraint firstAttribute="trailing" secondItem="Dyl-9b-0G0" secondAttribute="trailing" id="iVC-SS-onR"/>
+                        <constraint firstAttribute="height" constant="35" id="wyY-tn-C51"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Yrx-lO-m4U" userLabel="左边表格">
+                    <rect key="frame" x="0.0" y="35" width="300" height="565"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="QfI-Wb-9gH"/>
+                        <outlet property="delegate" destination="-1" id="bzO-xP-Hxk"/>
+                    </connections>
+                </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Siz-lK-DUt" userLabel="右边表格">
+                    <rect key="frame" x="300" y="35" width="300" height="565"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="fYe-SE-tl2"/>
+                        <outlet property="delegate" destination="-1" id="oFH-Sa-SjB"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Yrx-lO-m4U" secondAttribute="bottom" id="3HD-lG-LFC"/>
+                <constraint firstItem="Yrx-lO-m4U" firstAttribute="top" secondItem="CpM-BC-vA7" secondAttribute="bottom" id="6in-li-qBv"/>
+                <constraint firstItem="CpM-BC-vA7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="CPi-1u-dfI"/>
+                <constraint firstAttribute="trailing" secondItem="Siz-lK-DUt" secondAttribute="trailing" id="Haq-Ib-RWr"/>
+                <constraint firstItem="Siz-lK-DUt" firstAttribute="leading" secondItem="Yrx-lO-m4U" secondAttribute="trailing" id="Jt5-qV-plw"/>
+                <constraint firstItem="Siz-lK-DUt" firstAttribute="top" secondItem="CpM-BC-vA7" secondAttribute="bottom" id="Nnd-4I-6C1"/>
+                <constraint firstItem="Yrx-lO-m4U" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="RSr-FT-1cn"/>
+                <constraint firstItem="Siz-lK-DUt" firstAttribute="leading" secondItem="Yrx-lO-m4U" secondAttribute="trailing" id="TGI-7z-fNm"/>
+                <constraint firstAttribute="bottom" secondItem="Siz-lK-DUt" secondAttribute="bottom" id="lS9-HE-lbm"/>
+                <constraint firstItem="Siz-lK-DUt" firstAttribute="width" secondItem="Yrx-lO-m4U" secondAttribute="width" id="uCb-dI-OIg"/>
+                <constraint firstAttribute="trailing" secondItem="CpM-BC-vA7" secondAttribute="trailing" id="ycI-HN-1Kp"/>
+                <constraint firstItem="CpM-BC-vA7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zDV-ER-SPE"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="388" y="388"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_changeCity" width="30" height="30"/>
+        <image name="btn_changeCity_selected" width="30" height="30"/>
+        <image name="icon_cell_rightArrow" width="17" height="17"/>
+        <image name="icon_cell_rightArrow_selected" width="14" height="24"/>
+    </resources>
+</document>

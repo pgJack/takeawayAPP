@@ -19,5 +19,10 @@
  */
 + (NSArray *)categories;
 
+/**
+ *  返回所有的城市数据 (里面都是HMCityGroup模型)
+ */
++ (NSArray *)cityGroups;
+
 
 @end

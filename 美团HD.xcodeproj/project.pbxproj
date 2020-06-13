@@ -23,11 +23,15 @@
 		185F9210248FD6E100A53064 /* HMPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F920F248FD6E100A53064 /* HMPerson.m */; };
 		185F9220249059DE00A53064 /* HMHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F921F249059DE00A53064 /* HMHomeViewController.m */; };
 		185F92282492652A00A53064 /* HMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185F92272492652A00A53064 /* HMNavigationController.m */; };
+		1886978D2494B80000E5B9CC /* HMCityGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886978C2494B80000E5B9CC /* HMCityGroup.m */; };
 		189C0F70248F4548004D1F61 /* HMCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189C0F6F248F4548004D1F61 /* HMCategoryViewController.xib */; };
 		189C0F76248F93D8004D1F61 /* HMCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C0F75248F93D8004D1F61 /* HMCategory.m */; };
 		189C0F7F2490BF54004D1F61 /* HMDropDownLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C0F7E2490BF54004D1F61 /* HMDropDownLeftCell.m */; };
 		189C0F822490BF64004D1F61 /* HMDropDownRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C0F812490BF64004D1F61 /* HMDropDownRightCell.m */; };
 		189C0F882490E302004D1F61 /* HMConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C0F872490E302004D1F61 /* HMConst.m */; };
+		189C0F8E2493B488004D1F61 /* HMDistrictViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189C0F8D2493B488004D1F61 /* HMDistrictViewController.xib */; };
+		189C0F972493CAAF004D1F61 /* HMCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C0F952493CAAF004D1F61 /* HMCityViewController.m */; };
+		189C0F982493CAAF004D1F61 /* HMCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189C0F962493CAAF004D1F61 /* HMCityViewController.xib */; };
 		18A059591B1EDC2000E17CCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A059571B1EDC2000E17CCE /* Main.storyboard */; };
 		18A0595B1B1EDC2000E17CCE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18A0595A1B1EDC2000E17CCE /* Images.xcassets */; };
 		18A0595E1B1EDC2000E17CCE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A0595C1B1EDC2000E17CCE /* LaunchScreen.xib */; };
@@ -80,6 +84,8 @@
 		185F921F249059DE00A53064 /* HMHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMHomeViewController.m; sourceTree = "<group>"; };
 		185F92262492652A00A53064 /* HMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMNavigationController.h; sourceTree = "<group>"; };
 		185F92272492652A00A53064 /* HMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMNavigationController.m; sourceTree = "<group>"; };
+		1886978B2494B80000E5B9CC /* HMCityGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMCityGroup.h; sourceTree = "<group>"; };
+		1886978C2494B80000E5B9CC /* HMCityGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMCityGroup.m; sourceTree = "<group>"; };
 		189C0F6F248F4548004D1F61 /* HMCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HMCategoryViewController.xib; sourceTree = "<group>"; };
 		189C0F74248F93D8004D1F61 /* HMCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMCategory.h; sourceTree = "<group>"; };
 		189C0F75248F93D8004D1F61 /* HMCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMCategory.m; sourceTree = "<group>"; };
@@ -89,6 +95,10 @@
 		189C0F812490BF64004D1F61 /* HMDropDownRightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMDropDownRightCell.m; sourceTree = "<group>"; };
 		189C0F862490E302004D1F61 /* HMConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMConst.h; sourceTree = "<group>"; };
 		189C0F872490E302004D1F61 /* HMConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMConst.m; sourceTree = "<group>"; };
+		189C0F8D2493B488004D1F61 /* HMDistrictViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HMDistrictViewController.xib; sourceTree = "<group>"; };
+		189C0F942493CAAF004D1F61 /* HMCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMCityViewController.h; sourceTree = "<group>"; };
+		189C0F952493CAAF004D1F61 /* HMCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMCityViewController.m; sourceTree = "<group>"; };
+		189C0F962493CAAF004D1F61 /* HMCityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HMCityViewController.xib; sourceTree = "<group>"; };
 		18A0594A1B1EDC2000E17CCE /* 美团HD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "美团HD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A0594E1B1EDC2000E17CCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18A059581B1EDC2000E17CCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -169,6 +179,10 @@
 				189C0F6F248F4548004D1F61 /* HMCategoryViewController.xib */,
 				182D376A2496576B0086DD00 /* HMDistrictViewController.h */,
 				182D376B2496576B0086DD00 /* HMDistrictViewController.m */,
+				189C0F8D2493B488004D1F61 /* HMDistrictViewController.xib */,
+				189C0F942493CAAF004D1F61 /* HMCityViewController.h */,
+				189C0F952493CAAF004D1F61 /* HMCityViewController.m */,
+				189C0F962493CAAF004D1F61 /* HMCityViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -267,6 +281,8 @@
 				182D3783249671860086DD00 /* HMSort.m */,
 				189C0F74248F93D8004D1F61 /* HMCategory.h */,
 				189C0F75248F93D8004D1F61 /* HMCategory.m */,
+				1886978B2494B80000E5B9CC /* HMCityGroup.h */,
+				1886978C2494B80000E5B9CC /* HMCityGroup.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -446,6 +462,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				182D377E249671860086DD00 /* sorts.plist in Resources */,
+				189C0F8E2493B488004D1F61 /* HMDistrictViewController.xib in Resources */,
+				189C0F982493CAAF004D1F61 /* HMCityViewController.xib in Resources */,
 				18A059591B1EDC2000E17CCE /* Main.storyboard in Resources */,
 				189C0F70248F4548004D1F61 /* HMCategoryViewController.xib in Resources */,
 				18A0595E1B1EDC2000E17CCE /* LaunchScreen.xib in Resources */,
@@ -512,10 +530,12 @@
 				182D378C249671860086DD00 /* HMDataTool.m in Sources */,
 				18A0599B248E75F200E17CCE /* DPConstants.m in Sources */,
 				189C0F822490BF64004D1F61 /* HMDropDownRightCell.m in Sources */,
+				189C0F972493CAAF004D1F61 /* HMCityViewController.m in Sources */,
 				182D3758249464A60086DD00 /* HMHomeTopItem.m in Sources */,
 				182D3766249657330086DD00 /* HMSortViewController.m in Sources */,
 				18A05996248DCD4900E17CCE /* DPAPI.m in Sources */,
 				185F92282492652A00A53064 /* HMNavigationController.m in Sources */,
+				1886978D2494B80000E5B9CC /* HMCityGroup.m in Sources */,
 				182D3750249446740086DD00 /* UIBarButtonItem+Extension.m in Sources */,
 				182D376C2496576B0086DD00 /* HMDistrictViewController.m in Sources */,
 				189C0F7F2490BF54004D1F61 /* HMDropDownLeftCell.m in Sources */,

@@ -9,6 +9,7 @@
 #import "HMDataTool.h"
 #import "HMSort.h"
 #import "HMCategory.h"
+#import "HMCityGroup.h"
 #import <MJExtension.h>
 
 @implementation HMDataTool
@@ -29,6 +30,15 @@ static NSArray *_categories;
         _categories = [HMCategory objectArrayWithFilename:@"categories.plist"];
     }
     return _categories;
+}
+
+static NSArray *_cityGroups;
++ (NSArray *)cityGroups
+{
+    if (_cityGroups == nil) {
+        _cityGroups = [HMCityGroup objectArrayWithFilename:@"cityGroups.plist"];
+    }
+    return _cityGroups;
 }
 
 @end
