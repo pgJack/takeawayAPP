@@ -8,6 +8,7 @@
 
 #import "HMHomeViewController.h"
 #import "UIBarButtonItem+Extension.h"
+#import "HMHomeTopItem.h"
 
 @interface HMHomeViewController ()
 
@@ -41,7 +42,32 @@ static NSString * const reuseIdentifier = @"Cell";
     // logo
     UIBarButtonItem *logoItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_meituan_logo"] style:UIBarButtonItemStylePlain target:nil action:nil];
     
-    self.navigationItem.leftBarButtonItems = @[logoItem];
+    // 类别
+    HMHomeTopItem *categoryTopItem = [HMHomeTopItem item];
+    [categoryTopItem.iconButton setImage:[UIImage imageNamed:@"icon_category_-1"] forState:UIControlStateNormal];
+    [categoryTopItem.iconButton setImage:[UIImage imageNamed:@"icon_category_highlighted_-1"] forState:UIControlStateHighlighted];
+    categoryTopItem.titleLabel.text = @"全部分类";
+    categoryTopItem.subtitleLabel.text = nil;
+    UIBarButtonItem *categoryItem = [[UIBarButtonItem alloc] initWithCustomView:categoryTopItem];
+    
+    
+    // 区域
+    HMHomeTopItem *districtTopItem = [HMHomeTopItem item];
+    [districtTopItem.iconButton setImage:[UIImage imageNamed:@"icon_district"] forState:UIControlStateNormal];
+    [districtTopItem.iconButton setImage:[UIImage imageNamed:@"icon_district_highlighted"] forState:UIControlStateHighlighted];
+    districtTopItem.titleLabel.text = @"北京";
+    districtTopItem.subtitleLabel.text = @"海淀区";
+    UIBarButtonItem *districtItem = [[UIBarButtonItem alloc] initWithCustomView:districtTopItem];
+    
+    // 排序
+    HMHomeTopItem *sortTopItem = [HMHomeTopItem item];
+    [sortTopItem.iconButton setImage:[UIImage imageNamed:@"icon_sort"] forState:UIControlStateNormal];
+    [sortTopItem.iconButton setImage:[UIImage imageNamed:@"icon_sort_highlighted"] forState:UIControlStateHighlighted];
+    sortTopItem.titleLabel.text = @"排序";
+    sortTopItem.subtitleLabel.text = @"默认排序";
+    UIBarButtonItem *sortItem = [[UIBarButtonItem alloc] initWithCustomView:sortTopItem];
+    
+    self.navigationItem.leftBarButtonItems = @[logoItem, categoryItem, districtItem, sortItem];
 }
 
 /**
@@ -49,7 +75,6 @@ static NSString * const reuseIdentifier = @"Cell";
  */
 - (void)setupNavRight
 {
-    
     // search
     UIBarButtonItem *searchItem = [UIBarButtonItem itemWithImage:@"icon_search" highImage:@"icon_search_highlighted" target:self action:@selector(searchClick)];
     searchItem.customView.width = 50;
